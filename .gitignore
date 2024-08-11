@@ -2,6 +2,7 @@
 
 # dependencies
 /Frontend-React/node_modules
+/Frontend-React/views
 /.pnp
 .pnp.js
 
