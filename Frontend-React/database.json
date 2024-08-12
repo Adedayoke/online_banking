@@ -1,0 +1,25 @@
+{
+  "signUpUser": {
+    "id": "c438",
+    "name": "Habeeb Adedayo",
+    "userName": "adelekeoke2009",
+    "uid": "e94bd3817c4",
+    "userPassword": "Adedayo@2006",
+    "phone": "+9728123186689",
+    "email": "adedayoke@gmail.com",
+    "country": "Nigeria"
+  },
+  "loginUser": {},
+  "users": [
+    {
+      "id": "c438",
+      "name": "Habeeb Adedayo",
+      "userName": "adelekeoke2009",
+      "uid": "e94bd3817c4",
+      "userPassword": "Adedayo@2006",
+      "phone": "+9728123186689",
+      "email": "adedayoke@gmail.com",
+      "country": "Nigeria"
+    }
+  ]
+}
