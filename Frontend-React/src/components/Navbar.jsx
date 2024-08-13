@@ -1,41 +1,51 @@
-import React, { useState } from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { Link, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function Navbar() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const {pathname} = useLocation();
-  
-  
+  const { pathname } = useLocation();
+  const { isLoggedIn, currentUser } = useSelector((state) => state.userAuth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch({ type: "userAuth/logout" });
+    toast.success("Logged out successfully");
+    navigate("/login");
+  };
+
   return (
-    <nav className="bg-cyan-500 text-sm text-stone-200 p-5 flex items-center justify-between">
+    <nav className="bg-cyan-500 text-xs md:text-sm text-stone-200 p-2 md:p-5 flex items-center justify-between">
       <div>Logo</div>
       {isLoggedIn ? (
-        <ul className="hidden md:flex">
-          <li className="mr-4">Habeeb</li>
-          <li>Logout</li>
+        <ul className="flex items-center justify-between">
+          <li className="mr-2 md:mr-4 font-bold uppercase">{currentUser?.userName}</li>
+          <li
+            onClick={handleLogout}
+            className="px-3 py-2 md:mr-4 md:px-4 md:py-3 bg-stone-700 rounded cursor-pointer"
+          >
+            Logout
+          </li>
         </ul>
       ) : (
         <ul className="md:flex items-center justify-between">
-          {
-            pathname === "/login" &&
+          {pathname === "/login" && (
             <li className="mr-4">
-            <Link to="/signup/one" className="px-4 py-3 bg-stone-700 rounded">
-              Signup
-            </Link>
-          </li>
-          
-          }
-          {
-            pathname.includes("/signup") && <li>
-            <Link
-              to="/login"
-              className="px-4 py-3 border border-stone-200 rounded"
-            >
-              Login
-            </Link>
-          </li>
-          }
+              <Link to="/signup/one" className="px-4 py-3 bg-stone-700 rounded">
+                Signup
+              </Link>
+            </li>
+          )}
+          {pathname.includes("/signup") && (
+            <li>
+              <Link
+                to="/login"
+                className="px-4 py-3 border border-stone-200 rounded"
+              >
+                Login
+              </Link>
+            </li>
+          )}
         </ul>
       )}
       {/* <div className="md:hidden">

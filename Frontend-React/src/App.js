@@ -6,6 +6,7 @@ import Login from './pages/Login'
 import AppLayout from './ui/AppLayout'
 import SignupOne from './pages/signup/SignupOne'
 import SignupTwo from './pages/signup/SignupTwo'
+import 'react-toastify/dist/ReactToastify.css';
 
 const router = createBrowserRouter([
   {

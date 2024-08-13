@@ -1,25 +1,30 @@
 {
   "signUpUser": {
-    "id": "c438",
-    "name": "Habeeb Adedayo",
-    "userName": "adelekeoke2009",
-    "uid": "e94bd3817c4",
-    "userPassword": "Adedayo@2006",
-    "phone": "+9728123186689",
-    "email": "adedayoke@gmail.com",
-    "country": "Nigeria"
+    "id": "",
+    "name": "",
+    "userName": "",
+    "uid": "",
+    "userPassword": "",
+    "phone": "",
+    "email": "",
+    "country": "",
+    "transactions": []
   },
-  "loginUser": {},
+  "loginUser": {
+    "email": "okeibraheem267@gmail.com",
+    "password": "Ibraheema1$"
+  },
   "users": [
     {
-      "id": "c438",
-      "name": "Habeeb Adedayo",
-      "userName": "adelekeoke2009",
-      "uid": "e94bd3817c4",
-      "userPassword": "Adedayo@2006",
-      "phone": "+9728123186689",
-      "email": "adedayoke@gmail.com",
-      "country": "Nigeria"
+      "id": "45e6",
+      "name": "Oke Adebayo",
+      "userName": "ibpro",
+      "uid": "e2d0ae89731",
+      "userPassword": "Ibraheema1$",
+      "phone": "+2348074534796",
+      "email": "okeibraheem267@gmail.com",
+      "country": "Nigeria",
+      "transactions": []
     }
   ]
 }

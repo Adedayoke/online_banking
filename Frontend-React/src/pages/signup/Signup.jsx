@@ -1,7 +1,5 @@
-import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import axios from "axios";
 import AuthContainer from "../../components/AuthContainer";
 
 export default function Signup() {

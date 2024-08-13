@@ -5,6 +5,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import PhonePrefixDropdown from "../../components/PhonePrefixesDropdown";
 import FlagDropdown from "../../components/FlagDropdown";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function SignupTwo() {
   const { userBasicDetails, signUpOneComplete } = useSelector(
@@ -27,29 +28,25 @@ export default function SignupTwo() {
     }
 
     // Dispatch the signup action
-    dispatch(
-      signup({
-        ...userBasicDetails,
-        phone: selectedPrefix + phoneNumber,
-        email,
-        country: selectedFlag,
-      })
-    );
     try {
       const response = await axios.post("http://localhost:5000/users", {
         ...userBasicDetails,
         phone: selectedPrefix + phoneNumber,
         email,
         country: selectedFlag,
+        transactions: []
       });
-      const response2 = await axios.post("http://localhost:5000/signUpUser", {
+      const response2 = await axios.put("http://localhost:5000/signUpUser", {
         ...userBasicDetails,
         phone: selectedPrefix + phoneNumber,
         email,
         country: selectedFlag,
+        transactions: []
       });
+      toast.success("Account created successfully")
     } catch (err) {
       console.error("Error during signup:", err);
+      toast.error("Error during signup")
     }
 
     // Navigate to the login page after dispatching
