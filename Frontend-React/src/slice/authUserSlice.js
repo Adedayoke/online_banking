@@ -16,11 +16,11 @@ const userAuthSlice = createSlice({
             state.signUpOneComplete = true
             state.userBasicDetails = action.payload
         },
-        signup(state, action){
-            state.currentUser = {
-                ...state.userBasicDetails, ...action.payload
-            }
-        },
+        // signup(state, action){
+        //     state.currentUser = {
+        //         ...state.userBasicDetails, ...action.payload
+        //     }
+        // },
         login(state, action){
             state.currentUser = action.payload
             state.isLoggedIn = true
@@ -32,7 +32,7 @@ const userAuthSlice = createSlice({
     }
 })
 
-export const {signupOne, signup, login} = userAuthSlice.actions
+export const {signupOne, login} = userAuthSlice.actions
 
 
 export default userAuthSlice.reducer

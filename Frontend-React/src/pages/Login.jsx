@@ -4,16 +4,15 @@ import { BiHide, BiShow } from 'react-icons/bi';
 import { CiLock } from 'react-icons/ci';
 import { useNavigate } from 'react-router-dom';
 import AuthContainer from '../components/AuthContainer';
-import { useDispatch, useSelector } from 'react-redux';
-import { login, signup } from '../slice/authUserSlice';
+import { useDispatch } from 'react-redux';
+import { login } from '../slice/authUserSlice';
 import { toast } from 'react-toastify';
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState(""); // Use only one password state
-  const [loginError, setLoginError] = useState(""); // For displaying any login errors
-  // const {userDetails} = useSelector((state)=>state.userAuth)
+  const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState(""); 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 

@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { signup } from "../../slice/authUserSlice";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import PhonePrefixDropdown from "../../components/PhonePrefixesDropdown";
 import FlagDropdown from "../../components/FlagDropdown";
@@ -17,7 +16,6 @@ export default function SignupTwo() {
   const [email, setEmail] = useState(""); // Initialize with an empty string
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   async function handleSubmit(e) {
     e.preventDefault();
