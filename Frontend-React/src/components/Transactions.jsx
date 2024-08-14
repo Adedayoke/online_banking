@@ -1,10 +1,10 @@
 import React from "react";
-import { PiHandWithdrawLight,PiHandDepositLight  } from "react-icons/pi";
+import { PiHandWithdrawLight, PiHandDepositLight } from "react-icons/pi";
 
 export default function Transactions({
-  personalDetails: { userName },
   transaction,
 }) {
+  console.log(transaction)
   return (
     <div className="text-base flex items-center justify-between mb-4">
       <div className="flex items-center">
@@ -15,16 +15,18 @@ export default function Transactions({
             <PiHandWithdrawLight color="#164e63" size={30} />
           )}
         </div>
-        <ul className="text-base">
+        <ul className="text-sm">
           {transaction?.type === "withdraw" ? (
             <li>
               Withdrawal to{" "}
-              {userName?.length > 4 ? userName.slice(0, 4) + "..." : userName}
+              {transaction?.destination?.length > 4
+                ? transaction.destination.slice(0, 4) + "..."
+                : transaction.destination}
             </li>
           ) : (
             <li>
               Recieved from{" "}
-              {transaction.recievedFrom > 4
+              {transaction?.recievedFrom.length > 4
                 ? transaction.recievedFrom.slice(0, 4) + "..."
                 : transaction.recievedFrom}
             </li>
@@ -32,13 +34,21 @@ export default function Transactions({
           <li>{transaction.date}</li>
         </ul>
       </div>
-      <ul>
+      <ul className="text-sm">
         {transaction?.type === "withdraw" ? (
           <li className="font-bold">-USD{transaction?.amount}</li>
         ) : (
           <li className="font-bold">+USD{transaction?.amount}</li>
         )}
-        <li className={`${transaction?.status === "Successful" ? "bg-green-300" : "bg-red-700 text-stone-100 text-center" } p-1 rounded`}>{transaction?.status}</li>
+        <li
+          className={`${
+            transaction?.status === "Successful"
+              ? "bg-green-300"
+              : "bg-red-700 text-stone-100 "
+          } text-center text-xs p-1 rounded`}
+        >
+          {transaction?.status}
+        </li>
       </ul>
     </div>
   );

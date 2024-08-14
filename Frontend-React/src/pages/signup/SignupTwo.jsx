@@ -31,12 +31,10 @@ export default function SignupTwo() {
       const response = await axios.post("http://localhost:5000/users", {
         uid: uid(),
         personalDetails: {...userBasicDetails, phone: selectedPrefix + phoneNumber, email, country: selectedFlag,},
-        transactions: []
       });
       const response2 = await axios.put("http://localhost:5000/signUpUser", {
         uid: uid(),
         personalDetails: {...userBasicDetails, phone: selectedPrefix + phoneNumber, email, country: selectedFlag,},
-        transactions: []
       });
       toast.success("Account created successfully")
     } catch (err) {

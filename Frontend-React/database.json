@@ -1,13 +1,13 @@
 {
   "signUpUser": {
-    "uid": "19012d149b3",
+    "uid": "f8874f3327d",
     "personalDetails": {
-      "name": "Habeeb Oke",
-      "userName": "Adedayoke",
+      "name": "Habeeb Adedayo",
+      "userName": "okeibraheem267@gmail.com",
       "userPassword": "Ibraheema1$",
-      "phone": "+618123186689",
+      "phone": "+2348123186689",
       "email": "adedayoke2006@gmail.com",
-      "country": "Australia"
+      "country": "France"
     },
     "transactions": []
   },
@@ -26,8 +26,7 @@
         "phone": "",
         "email": "",
         "country": ""
-      },
-      "transactions": []
+      }
     },
     {
       "id": "dc5e",
@@ -39,25 +38,39 @@
         "phone": "+618123186689",
         "email": "adedayoke2006@gmail.com",
         "country": "Australia"
-      },
-      "transactions": [
-        {
-          "type": "withdraw",
-          "destination": "FirstBank",
-          "recievedFrom": "",
-          "date": "12/12/2024",
-          "amount": "1000",
-          "status": "Successful"
-        },
-        {
-          "type": "recieved",
-          "destination": "",
-          "recievedFrom": "Cashapp",
-          "date": "12/12/2024",
-          "amount": "5000",
-          "status": "Failed"
-        }
-      ]
+      }
+    },
+    {
+      "id": "f26a",
+      "uid": "0f8874f3327",
+      "personalDetails": {
+        "name": "Habeeb Adedayo",
+        "userName": "okeibraheem267@gmail.com",
+        "userPassword": "Ibraheema1$",
+        "phone": "+2348123186689",
+        "email": "adedayoke2006@gmail.com",
+        "country": "France"
+      }
+    }
+  ],
+  "transactions": [
+    {
+      "uid": "0f8874f3327",
+      "type": "withdraw",
+      "destination": "FirstBank",
+      "recievedFrom": "",
+      "date": "12/12/2024",
+      "amount": "1000",
+      "status": "Successful"
+    },
+    {
+      "uid": "319012d149b",
+      "type": "recieved",
+      "destination": "",
+      "recievedFrom": "Cashapp",
+      "date": "12/12/2024",
+      "amount": "5000",
+      "status": "Failed"
     }
   ]
 }

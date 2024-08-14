@@ -8,10 +8,10 @@ export default function CurrencyDropdown({
   handleCurrencySelect,
 }) {
   return (
-    <div className="relative mr-3 text-stone-700">
+    <div className="relative text-base mr-2 text-stone-700">
       <button
         onClick={toggleDropdown}
-        className="w-full text-left px-4 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        className="w-full text-left px-2 py-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
       >
         {selectedCurrency} <span className="ml-2 float-right">&#9660;</span>
       </button>

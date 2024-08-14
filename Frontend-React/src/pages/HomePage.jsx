@@ -1,19 +1,37 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import CurrencyDropdown from "../components/CurrencyDropdown";
 import { BiHide, BiShow } from "react-icons/bi";
 import { PiHandWithdrawLight } from "react-icons/pi";
 import Transactions from "../components/Transactions";
+import { setTransaction } from "../slice/balanceSlice";
 
 export default function HomePage() {
   const { isLoggedIn, currentUser } = useSelector((state) => state.userAuth);
+  const { transactions } = useSelector((state) => state.userBalanceDetails);
   const [selectedCurrency, setSelectedCurrency] = useState("USD");
   const [conversionRate, setConversionRate] = useState(1);
   const [balance, setBalance] = useState(1000); // Replace with actual balance
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showBalance, setShowBalance] = useState(false);
+  const dispatch = useDispatch();
+
+  useEffect(function(){
+    async function fetchUserTransaction(){
+      try {
+        const response = await axios.get(`http://localhost:5000/transactions?uid=${currentUser?.uid}`);
+        dispatch(setTransaction(response.data)); // Pass the filtered transactions array directly
+      } catch (error) {
+        console.error("Error fetching transactions:", error);
+      }
+    }
+    if (currentUser) {
+      fetchUserTransaction();
+    }
+  }, [currentUser, dispatch])
+  
 
   useEffect(() => {
     if (selectedCurrency !== "USD") {
@@ -75,12 +93,12 @@ export default function HomePage() {
                   handleCurrencySelect={handleCurrencySelect}
                   currencies={currencies}
                 />
-                <p className="text-4xl font-bold">
+                <p className="text-2xl font-bold">
                   {(balance * conversionRate).toFixed(2)}
                 </p>
               </div>
             ) : (
-              <div className="font-bold text-4xl">****</div>
+              <div className="font-bold text-2xl">****</div>
             )}
           </div>
         </div>
@@ -88,7 +106,7 @@ export default function HomePage() {
           <h2 className="text-stone-700 font-bold rounded-lg mb-4">
             Transaction History {">"}
           </h2>
-          {currentUser?.transactions.map((transaction) => {
+          {transactions?.map((transaction) => {
             return (
               <Transactions
                 transaction={transaction}
