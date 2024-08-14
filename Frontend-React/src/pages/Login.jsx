@@ -30,7 +30,7 @@ export default function Login() {
       const loginResponse = await axios.put("http://localhost:5000/loginUser", { email, password });
       
       if (loginResponse.data) {
-        const userDetailResponse = await axios.get(`http://localhost:5000/users?email=${email}`);
+        const userDetailResponse = await axios.get(`http://localhost:5000/users?personalDetails.email=${email}`);
         
         if (userDetailResponse.data.length > 0) {
           const user = userDetailResponse.data[0];
@@ -39,16 +39,15 @@ export default function Login() {
               ...user
             })
           );
-          toast.success("User LoggedIn Succesfully")
-          console.log("User Details:", user);
+          toast.success("User LoggedIn Successfully");
           navigate("/");
         } else {
           setLoginError("User details not found.");
-          toast.error("User details not found, Try again")
+          toast.error("User details not found. Try again.");
         }
       } else {
         setLoginError("Login failed. Please check your credentials.");
-        toast.error("Login failed. Please check your credentials.")
+        toast.error("Login failed. Please check your credentials.");
       }
       
     } catch (err) {
@@ -96,7 +95,6 @@ export default function Login() {
           </span>
         </div>
 
-        {/* Display any login errors */}
         {loginError && (
           <div className="text-red-500 text-xs mt-2 mb-2">{loginError}</div>
         )}

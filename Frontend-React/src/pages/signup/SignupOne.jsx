@@ -4,7 +4,7 @@ import { CiLock } from "react-icons/ci";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { signupOne } from "../../slice/authUserSlice";
-import { uid } from "uid";
+
 
 export default function SignupOne() {
   const [firstName, setFirstName] = useState("");
@@ -80,7 +80,7 @@ export default function SignupOne() {
     if (passwordError || confirmPasswordError) return;
 
     // Dispatch the signupOne action
-    dispatch(signupOne({ name: `${firstName} ${lastName}`, userName, uid: uid(), userPassword }));
+    dispatch(signupOne({ name: `${firstName} ${lastName}`, userName, userPassword }));
     navigate("/signup/two");
   };
 

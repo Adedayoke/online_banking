@@ -5,6 +5,7 @@ import PhonePrefixDropdown from "../../components/PhonePrefixesDropdown";
 import FlagDropdown from "../../components/FlagDropdown";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { uid } from "uid";
 
 export default function SignupTwo() {
   const { userBasicDetails, signUpOneComplete } = useSelector(
@@ -28,17 +29,13 @@ export default function SignupTwo() {
     // Dispatch the signup action
     try {
       const response = await axios.post("http://localhost:5000/users", {
-        ...userBasicDetails,
-        phone: selectedPrefix + phoneNumber,
-        email,
-        country: selectedFlag,
+        uid: uid(),
+        personalDetails: {...userBasicDetails, phone: selectedPrefix + phoneNumber, email, country: selectedFlag,},
         transactions: []
       });
       const response2 = await axios.put("http://localhost:5000/signUpUser", {
-        ...userBasicDetails,
-        phone: selectedPrefix + phoneNumber,
-        email,
-        country: selectedFlag,
+        uid: uid(),
+        personalDetails: {...userBasicDetails, phone: selectedPrefix + phoneNumber, email, country: selectedFlag,},
         transactions: []
       });
       toast.success("Account created successfully")
