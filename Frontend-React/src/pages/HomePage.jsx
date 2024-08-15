@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import CurrencyDropdown from "../components/CurrencyDropdown";
 import { BiHide, BiShow } from "react-icons/bi";
-import { PiHandWithdrawLight } from "react-icons/pi";
+import { PiHandWithdrawFill } from "react-icons/pi";
+import { PiBankBold } from "react-icons/pi";
 import Transactions from "../components/Transactions";
 import { setTransaction } from "../slice/balanceSlice";
 
@@ -18,20 +19,24 @@ export default function HomePage() {
   const [showBalance, setShowBalance] = useState(false);
   const dispatch = useDispatch();
 
-  useEffect(function(){
-    async function fetchUserTransaction(){
-      try {
-        const response = await axios.get(`http://localhost:5000/transactions?uid=${currentUser?.uid}`);
-        dispatch(setTransaction(response.data)); // Pass the filtered transactions array directly
-      } catch (error) {
-        console.error("Error fetching transactions:", error);
+  useEffect(
+    function () {
+      async function fetchUserTransaction() {
+        try {
+          const response = await axios.get(
+            `http://localhost:5000/transactions?uid=${currentUser?.uid}`
+          );
+          dispatch(setTransaction(response.data)); // Pass the filtered transactions array directly
+        } catch (error) {
+          console.error("Error fetching transactions:", error);
+        }
       }
-    }
-    if (currentUser) {
-      fetchUserTransaction();
-    }
-  }, [currentUser, dispatch])
-  
+      if (currentUser) {
+        fetchUserTransaction();
+      }
+    },
+    [currentUser, dispatch]
+  );
 
   useEffect(() => {
     if (selectedCurrency !== "USD") {
@@ -65,16 +70,16 @@ export default function HomePage() {
   const currencies = ["USD", "EUR", "GBP", "NGN"]; // Add more currencies as needed
 
   return (
-    <div className="flex w-full md:absolute md:left-1/4  md:w-3/4 items-center justify-center md:h-full h-5/6 p-0 bg-stone-200">
-      <div className=" rounded h-full w-full md:w-3/4 p-6 flex items-center justify-between flex-col">
+    <div className="flex w-full md:absolute md:left-1/4  md:w-3/4 items-center justify-center md:h-full h-full pt-14 bg-stone-200 overflow-y-auto">
+      <div className=" rounded h-full w-full md:w-3/4 p-6 flex items-center justify-between flex-col overflow-y-auto">
         <div className="w-full">
-          <div className="mr-2 mb-5 md:mr-4 font-bold p-4">
+          <div className="mr-2 mb-3 md:mr-4 font-bold p-4">
             Hi,{" "}
             <span className="uppercase">
               {currentUser?.personalDetails?.userName}
             </span>
           </div>
-          <div className="w-full bg-cyan-500 p-4 rounded-lg text-stone-100">
+          <div className="w-full bg-cyan-500 p-4 rounded-lg text-stone-100 mb-3">
             <p className="mb-4 flex items-center">
               Available balance{" "}
               <span
@@ -102,18 +107,40 @@ export default function HomePage() {
             )}
           </div>
         </div>
-        <div className="w-full bg-stone-100 p-4 h-4/6">
+        <div className="flex w-full items-center p-4 justify-around bg-stone-100 mx-0 my-4 rounded-xl font-semibold md:hidden">
+          <Link to="/deposit">
+            <div className="flex items-center flex-col">
+              <span className="text-cyan-500 p-2 bg-cyan-100 rounded-lg mb-2">
+                <PiBankBold size={26} />
+              </span>
+              <span>Deposit</span>
+            </div>
+          </Link>
+          <Link className=" block" to="/withdraw">
+            <div className="flex items-center flex-col">
+              <span className="text-cyan-500 p-2 bg-cyan-100 rounded-lg mb-2">
+                <PiHandWithdrawFill size={26} />
+              </span>
+              <span>Withdraw</span>
+            </div>
+          </Link>
+        </div>
+        <div className="w-full rounded-xl bg-stone-100 p-4 h-96">
           <h2 className="text-stone-700 font-bold rounded-lg mb-4">
             Transaction History {">"}
           </h2>
-          { transactions.length > 0 ? transactions?.map((transaction) => {
-            return (
-              <Transactions
-                transaction={transaction}
-                personalDetails={currentUser?.personalDetails}
-              />
-            );
-          }) : <p className="text-center text-stone-400">No Transactions yet.</p>}
+          {transactions.length > 0 ? (
+            transactions?.map((transaction) => {
+              return (
+                <Transactions
+                  transaction={transaction}
+                  personalDetails={currentUser?.personalDetails}
+                />
+              );
+            })
+          ) : (
+            <p className="text-center text-stone-400">No Transactions yet.</p>
+          )}
         </div>
       </div>
     </div>

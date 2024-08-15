@@ -15,9 +15,9 @@ export default function NavigationContainer({
         "md:bg-cyan-200 md:border-l-4 md:border-cyan-500"
       } ${
         pathname !== `/${page}` && "md:hover:bg-stone-200"
-      } text-cyan-500 md:w-full md:p-4 md:text-left  md:cursor-pointer ${
+      } ${
         page === "withdraw" || page === "deposit" ? "hidden md:block" : "block"
-      }`}
+      } text-cyan-500 md:w-full md:p-4 md:text-left  md:cursor-pointer`}
     >
       <Link
         className="w-full md:flex-row   text-center md:text-left flex items-center flex-col  "

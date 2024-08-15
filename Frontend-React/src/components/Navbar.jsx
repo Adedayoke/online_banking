@@ -21,7 +21,7 @@ export default function Navbar() {
   }, [currentUser])
 
   return (
-    <nav className="bg-cyan-500 text-xs md:text-sm text-stone-200 p-2 md:p-5 flex items-center justify-between h-14">
+    <nav className="bg-cyan-500 text-xs md:text-sm text-stone-200 p-2 md:p-5 flex items-center justify-between h-14 absolute left-0 top-0 w-full z-10">
       <div>Logo</div>
       {isLoggedIn ? (
         <ul className="flex items-center justify-between">

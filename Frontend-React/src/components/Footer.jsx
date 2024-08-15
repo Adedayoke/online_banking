@@ -19,7 +19,7 @@ export default function Footer() {
   const { isLoggedIn } = useSelector((state) => state.userAuth);
   if (isLoggedIn)
     return (
-      <footer className="absolute left-0 w-full bottom-0 md:top-14 md:bg-stone-100 md:w-1/4">
+      <footer className="absolute text-sm md:text-base left-0 w-full bottom-0 md:top-14 bg-stone-100 md:w-1/4">
         <ul className="flex h-full md:block items-center justify-between py-4 px-5 md:py-4 md:px-0">
           <NavigationContainer
             page=""
@@ -60,9 +60,9 @@ export default function Footer() {
       </footer>
     );
 
-  return (
-    <footer className="bg-stone-700 h-40 text-stone-200 w-full">
-      my footer
-    </footer>
-  );
+  // return (
+  //   <footer className="bg-stone-700 h-40 text-stone-200 w-full">
+  //     my footer
+  //   </footer>
+  // );
 }
