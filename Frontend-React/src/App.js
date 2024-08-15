@@ -7,6 +7,10 @@ import AppLayout from './ui/AppLayout'
 import SignupOne from './pages/signup/SignupOne'
 import SignupTwo from './pages/signup/SignupTwo'
 import 'react-toastify/dist/ReactToastify.css';
+import Withdraw from './pages/transactionPages/Withdraw'
+import Deposit from './pages/transactionPages/Deposit'
+import Cards from './pages/transactionPages/Cards'
+import Me from './pages/transactionPages/Me'
 
 const router = createBrowserRouter([
   {
@@ -33,6 +37,22 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login/>
+      },
+      {
+        path: "withdraw",
+        element: <Withdraw/>
+      },
+      {
+        path: "deposit",
+        element: <Deposit/>
+      },
+      {
+        path: "cards",
+        element: <Cards/>
+      },
+      {
+        path: "me",
+        element: <Me/>
       },
     ]
   }

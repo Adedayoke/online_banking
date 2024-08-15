@@ -1,15 +1,14 @@
 {
   "signUpUser": {
-    "uid": "f8874f3327d",
+    "uid": "d6be75a671b",
     "personalDetails": {
-      "name": "Habeeb Adedayo",
-      "userName": "okeibraheem267@gmail.com",
-      "userPassword": "Ibraheema1$",
-      "phone": "+2348123186689",
-      "email": "adedayoke2006@gmail.com",
-      "country": "France"
-    },
-    "transactions": []
+      "name": "Ibraheem Olamilekan",
+      "userName": "Drone Boy",
+      "userPassword": "Ibraheem@01",
+      "phone": "+2348024325159",
+      "email": "ibro@gmail.com",
+      "country": "Nigeria"
+    }
   },
   "loginUser": {
     "email": "adedayoke2006@gmail.com",
@@ -51,6 +50,18 @@
         "email": "adedayoke2006@gmail.com",
         "country": "France"
       }
+    },
+    {
+      "id": "536c",
+      "uid": "bd6be75a671",
+      "personalDetails": {
+        "name": "Ibraheem Olamilekan",
+        "userName": "Drone Boy",
+        "userPassword": "Ibraheem@01",
+        "phone": "+2348024325159",
+        "email": "ibro@gmail.com",
+        "country": "Nigeria"
+      }
     }
   ],
   "transactions": [
@@ -61,7 +72,8 @@
       "recievedFrom": "",
       "date": "12/12/2024",
       "amount": "1000",
-      "status": "Successful"
+      "status": "Successful",
+      "id": "81af"
     },
     {
       "uid": "319012d149b",
@@ -70,7 +82,8 @@
       "recievedFrom": "Cashapp",
       "date": "12/12/2024",
       "amount": "5000",
-      "status": "Failed"
+      "status": "Failed",
+      "id": "4d28"
     }
   ]
 }

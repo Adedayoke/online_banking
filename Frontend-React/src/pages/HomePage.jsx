@@ -65,8 +65,8 @@ export default function HomePage() {
   const currencies = ["USD", "EUR", "GBP", "NGN"]; // Add more currencies as needed
 
   return (
-    <div className="flex items-center justify-center h-5/6 p-0 bg-stone-200">
-      <div className=" rounded shadow-md h-full w-full md:w-1/2 lg:w-1/3 p-6 flex items-center justify-between flex-col">
+    <div className="flex w-full md:absolute md:left-1/4  md:w-3/4 items-center justify-center md:h-full h-5/6 p-0 bg-stone-200">
+      <div className=" rounded h-full w-full md:w-3/4 p-6 flex items-center justify-between flex-col">
         <div className="w-full">
           <div className="mr-2 mb-5 md:mr-4 font-bold p-4">
             Hi,{" "}
@@ -106,14 +106,14 @@ export default function HomePage() {
           <h2 className="text-stone-700 font-bold rounded-lg mb-4">
             Transaction History {">"}
           </h2>
-          {transactions?.map((transaction) => {
+          { transactions.length > 0 ? transactions?.map((transaction) => {
             return (
               <Transactions
                 transaction={transaction}
                 personalDetails={currentUser?.personalDetails}
               />
             );
-          })}
+          }) : <p className="text-center text-stone-400">No Transactions yet.</p>}
         </div>
       </div>
     </div>
