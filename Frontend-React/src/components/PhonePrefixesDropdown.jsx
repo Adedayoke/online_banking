@@ -70,7 +70,7 @@ const PhonePrefixDropdown = ({selectedPrefix, setSelectedPrefix}) => {
   return (
     <div className="relative w-3/12 inline-block text-left">
       <div
-        className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
+        className="inline-flex justify-center w-full rounded-md border-none  shadow-sm px-4 py-2  text-sm font-medium text-customGreen focus:outline-none"
         id="options-menu"
         onClick={()=>setSelected(false)}
       >

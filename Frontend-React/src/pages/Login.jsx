@@ -1,18 +1,19 @@
-import axios from 'axios';
-import React, { useState } from 'react';
-import { BiHide, BiShow } from 'react-icons/bi';
-import { CiLock } from 'react-icons/ci';
-import { useNavigate } from 'react-router-dom';
-import AuthContainer from '../components/AuthContainer';
-import { useDispatch } from 'react-redux';
-import { login } from '../slice/authUserSlice';
-import { toast } from 'react-toastify';
+import axios from "axios";
+import React, { useState } from "react";
+import { BiHide, BiShow } from "react-icons/bi";
+import { CiLock } from "react-icons/ci";
+import { Link, useNavigate } from "react-router-dom";
+import AuthContainer from "../components/AuthContainer";
+import { useDispatch } from "react-redux";
+import { login } from "../slice/authUserSlice";
+import { toast } from "react-toastify";
+import { FaKey } from "react-icons/fa";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loginError, setLoginError] = useState(""); 
+  const [loginError, setLoginError] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -27,16 +28,21 @@ export default function Login() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const loginResponse = await axios.put("http://localhost:5000/loginUser", { email, password });
-      
+      const loginResponse = await axios.put("http://localhost:5000/loginUser", {
+        email,
+        password,
+      });
+
       if (loginResponse.data) {
-        const userDetailResponse = await axios.get(`http://localhost:5000/users?personalDetails.email=${email}`);
-        
+        const userDetailResponse = await axios.get(
+          `http://localhost:5000/users?personalDetails.email=${email}`
+        );
+
         if (userDetailResponse.data.length > 0) {
           const user = userDetailResponse.data[0];
           dispatch(
             login({
-              ...user
+              ...user,
             })
           );
           toast.success("User LoggedIn Successfully");
@@ -49,7 +55,6 @@ export default function Login() {
         setLoginError("Login failed. Please check your credentials.");
         toast.error("Login failed. Please check your credentials.");
       }
-      
     } catch (err) {
       console.error("Error during login:", err);
       setLoginError("An error occurred. Please try again.");
@@ -58,9 +63,15 @@ export default function Login() {
 
   return (
     <AuthContainer>
-      <p className="text-center text-xl font-bold p-4">Login</p>
-      <form className="p-4" onSubmit={handleSubmit}>
+      {/* <p className="text-center text-xl font-bold p-4">Login</p> */}
+      <form className="p-4 z-20" onSubmit={handleSubmit}>
         <div className="flex flex-col mb-4 text-sm">
+          <label
+            className="text-base text-stone-100 font-semibold mb-2"
+            htmlFor="email"
+          >
+            Login ID
+          </label>
           <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -68,43 +79,61 @@ export default function Login() {
             type="email"
             id="email"
             name="email"
-            className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            className="px-3 focus:text-customGreen py-2 border border-customGreen bg-transparent shadow-sm focus:outline-none focus:bg-white focus:ring-customGreen focus:border-customGreen rounded"
             required
           />
         </div>
-        
-        <div className="border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 flex mb-4 text-sm bg-white">
-          <span className="w-1/12 text-center flex items-center justify-center cursor-pointer">
-            <CiLock size={25} />
-          </span>
-          <input
-            onChange={handlePasswordChange}
-            value={password}
-            placeholder="Enter password"
-            type={showPassword ? "text" : "password"}
-            id="password"
-            name="password"
-            className="w-full px-3 py-2 rounded-md focus:outline-none"
-            required
-          />
-          <span
-            className="w-1/12 text-center flex items-center justify-center cursor-pointer"
-            onClick={handleTogglePasswordVisibility}
+        <div>
+          <label
+            className="text-base text-stone-100 font-semibold mb-2"
+            htmlFor="password"
           >
-            {showPassword ? <BiHide size={25} /> : <BiShow size={25} />}
-          </span>
+            Password
+          </label>
+          <div className="border-customGreen bg-transparent shadow-sm focus:outline-none focus:ring-customGreen focus:border-customGreen flex mb-4 text-sm  border rounded">
+            <span className="w-1/12 text-white text-center flex items-center justify-center cursor-pointer">
+              <CiLock size={25} />
+            </span>
+            <input
+              onChange={handlePasswordChange}
+              value={password}
+              placeholder="Enter password"
+              type={showPassword ? "text" : "password"}
+              id="password"
+              name="password"
+              className="w-full text-white bg-transparent px-3 py-2 rounded-md focus:outline-none"
+              required
+            />
+            <span
+              className="w-1/12 text-white text-center flex items-center justify-center cursor-pointer"
+              onClick={handleTogglePasswordVisibility}
+            >
+              {showPassword ? <BiHide size={25} /> : <BiShow size={25} />}
+            </span>
+          </div>
         </div>
 
         {loginError && (
           <div className="text-red-500 text-xs mt-2 mb-2">{loginError}</div>
         )}
-        
+        <div className="flex items-center justify-end text-base font-semibold text-customGreen">
+          <Link className="flex items-center">
+            <FaKey />
+            <span className="ml-1">Forgot password?</span>
+          </Link>
+        </div>
         <button
           type="submit"
-          className="disabled:bg-cyan-400 disabled:text-stone-100 disabled:cursor-not-allowed block p-1 bg-cyan-500 text-stone-200 w-full my-4 rounded mx-auto"
+          className="disabled:bg-[#83d03a] disabled:text-stone-100 disabled:cursor-not-allowed block p-1 bg-[#06151a] text-[#83d03a] w-full my-4 rounded mx-auto"
         >
           Submit
         </button>
+        <p className="text-center text-base font-semibold text-white">
+          Don't have an account?{" "}
+          <Link className="text-customGreen" to="/signup/one">
+            Sign Up
+          </Link>
+        </p>
       </form>
     </AuthContainer>
   );

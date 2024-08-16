@@ -8,6 +8,7 @@ import { PiHandWithdrawFill } from "react-icons/pi";
 import { PiBankBold } from "react-icons/pi";
 import Transactions from "../components/Transactions";
 import { setTransaction } from "../slice/balanceSlice";
+import Overlay from "../components/Overlay";
 
 export default function HomePage() {
   const { isLoggedIn, currentUser } = useSelector((state) => state.userAuth);
@@ -70,16 +71,17 @@ export default function HomePage() {
   const currencies = ["USD", "EUR", "GBP", "NGN"]; // Add more currencies as needed
 
   return (
-    <div className="flex w-full md:absolute md:left-1/4  md:w-3/4 items-center justify-center md:h-full h-full pt-14 bg-stone-200 overflow-y-auto">
-      <div className=" rounded h-full w-full md:w-3/4 p-6 flex items-center justify-between flex-col overflow-y-auto">
+    <div className="flex w-full md:absolute md:left-1/4  md:w-3/4 items-center justify-center md:h-full h-full pt-14 overflow-y-auto bg-radial-custom ">
+      <Overlay>
+      <div className=" rounded h-full w-full md:w-3/4 p-6 flex items-center justify-between flex-col overflow-y-auto ">
         <div className="w-full">
-          <div className="mr-2 mb-3 md:mr-4 font-bold p-4">
+          <div className="mr-2 mb-3 md:mr-4 font-bold p-4 text-white">
             Hi,{" "}
             <span className="uppercase">
               {currentUser?.personalDetails?.userName}
             </span>
           </div>
-          <div className="w-full bg-cyan-500 p-4 rounded-lg text-stone-100 mb-3">
+          <div className="w-full p-4 rounded-lg text-stone-100 mb-3">
             <p className="mb-4 flex items-center">
               Available balance{" "}
               <span
@@ -107,26 +109,26 @@ export default function HomePage() {
             )}
           </div>
         </div>
-        <div className="flex w-full items-center p-4 justify-around bg-stone-100 mx-0 my-4 rounded-xl font-semibold md:hidden">
+        <div className="flex w-full items-center p-4 justify-around  mx-0 my-4 rounded-xl font-semibold md:hidden">
           <Link to="/deposit">
-            <div className="flex items-center flex-col">
-              <span className="text-cyan-500 p-2 bg-cyan-100 rounded-lg mb-2">
+            <div className="flex items-center text-white flex-col">
+              <span className="text-white p-2 bg-customGreen rounded-lg mb-2">
                 <PiBankBold size={26} />
               </span>
               <span>Deposit</span>
             </div>
           </Link>
           <Link className=" block" to="/withdraw">
-            <div className="flex items-center flex-col">
-              <span className="text-cyan-500 p-2 bg-cyan-100 rounded-lg mb-2">
+            <div className="flex text-white items-center flex-col">
+              <span className="text-white bg-customGreen p-2 rounded-lg mb-2">
                 <PiHandWithdrawFill size={26} />
               </span>
               <span>Withdraw</span>
             </div>
           </Link>
         </div>
-        <div className="w-full rounded-xl bg-stone-100 p-4 h-96">
-          <h2 className="text-stone-700 font-bold rounded-lg mb-4">
+        <div className="w-full rounded-xl bg-coolAsh p-4 h-96">
+          <h2 className="text-white font-bold rounded-lg mb-4">
             Transaction History {">"}
           </h2>
           {transactions.length > 0 ? (
@@ -139,10 +141,11 @@ export default function HomePage() {
               );
             })
           ) : (
-            <p className="text-center text-stone-400">No Transactions yet.</p>
+            <p className="text-center text-white">No Transactions yet.</p>
           )}
         </div>
       </div>
+      </Overlay>
     </div>
   );
 }

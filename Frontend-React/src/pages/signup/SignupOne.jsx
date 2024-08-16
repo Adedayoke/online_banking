@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { BiShow, BiHide } from "react-icons/bi";
 import { CiLock } from "react-icons/ci";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signupOne } from "../../slice/authUserSlice";
+import ButtonPrimary from "../../components/ButtonPrimary";
 
 
 export default function SignupOne() {
@@ -94,7 +95,7 @@ export default function SignupOne() {
           type="text"
           id="firstName"
           name="firstName"
-          className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          className="focus:text-customAsh px-3 py-2 border border-none bg-customAsh shadow-sm focus:outline-none focus:bg-white focus:ring-customAsh focus:border-customAsh rounded text-white"
           required
         />
       </div>
@@ -106,7 +107,7 @@ export default function SignupOne() {
           type="text"
           id="lastName"
           name="lastName"
-          className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          className="focus:text-customAsh px-3 py-2 border border-none bg-customAsh shadow-sm focus:outline-none focus:bg-white focus:ring-customAsh focus:border-customAsh rounded text-white"
           required
         />
       </div>
@@ -118,13 +119,13 @@ export default function SignupOne() {
           type="text"
           id="username"
           name="username"
-          className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          className="focus:text-customAsh px-3 py-2 border border-none bg-customAsh shadow-sm focus:outline-none focus:bg-white focus:ring-customAsh focus:border-customAsh rounded text-white"
           required
         />
       </div>
-      <div className="border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 flex mb-4 text-sm bg-white">
-        <span className="w-1/12 text-center flex items-center justify-center cursor-pointer">
-          <CiLock size={25} />
+      <div className="border-none bg-customAsh shadow-sm focus:outline-none focus:ring-customAsh focus:border-white flex mb-4 text-sm  border rounded">
+        <span className="w-1/12 text-white text-center flex items-center justify-center cursor-pointer">
+          <CiLock  size={25} />
         </span>
         <input
           onChange={handlePasswordChange}
@@ -133,11 +134,11 @@ export default function SignupOne() {
           type={showPassword ? "text" : "password"}
           id="password"
           name="password"
-          className="w-full px-3 py-2 rounded-md focus:outline-none"
+          className="w-full text-white focus:text-white bg-customAsh px-3 py-2 rounded-md focus:outline-none"
           required
         />
         <span
-          className="w-1/12 text-center flex items-center justify-center cursor-pointer"
+          className="w-1/12 text-center flex items-center justify-center cursor-pointer text-white"
           onClick={handleTogglePasswordVisibility}
         >
           {showPassword ? <BiHide size={25} /> : <BiShow size={25} />}
@@ -147,8 +148,8 @@ export default function SignupOne() {
         <div className="text-red-500 text-xs mt-2 mb-2">{passwordError}</div>
       )}
 
-      <div className="border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 flex mb-4 text-sm bg-white">
-        <span className="w-1/12 text-center flex items-center justify-center cursor-pointer">
+      <div className="border-none bg-customAsh shadow-sm focus:outline-none focus:ring-customAsh focus:border-white flex mb-4 text-sm  border rounded">
+        <span className="w-1/12 text-white text-center flex items-center justify-center cursor-pointer">
           <CiLock size={25} />
         </span>
         <input
@@ -158,11 +159,11 @@ export default function SignupOne() {
           type={showConfirmPassword ? "text" : "password"}
           id="confirmPassword"
           name="confirmPassword"
-          className="w-full px-3 py-2 rounded-md focus:outline-none"
+          className="w-full text-white focus:text-white bg-customAsh px-3 py-2 rounded-md focus:outline-none"
           required
         />
         <span
-          className="w-1/12 text-center flex items-center justify-center cursor-pointer"
+          className="w-1/12   text-center flex items-center justify-center cursor-pointer text-white"
           onClick={handleToggleConfirmPasswordVisibility}
         >
           {showConfirmPassword ? <BiHide size={25} /> : <BiShow size={25} />}
@@ -174,13 +175,13 @@ export default function SignupOne() {
         </div>
       )}
 
-      <button
-        type="submit" // Ensure the button triggers form submission
-        disabled={passwordError || confirmPasswordError}
-        className="disabled:bg-cyan-400 disabled:text-stone-100 disabled:cursor-not-allowed block p-1 bg-cyan-500 text-stone-200 w-full my-4 rounded mx-auto"
-      >
-        Submit
-      </button>
+      <ButtonPrimary disabled={passwordError || confirmPasswordError}>Submit</ButtonPrimary>
+      <p className="text-center text-base font-semibold text-white">
+          Already have an account?{" "}
+          <Link className="text-customGreen" to="/login">
+            Login
+          </Link>
+        </p>
     </form>
   );
 }

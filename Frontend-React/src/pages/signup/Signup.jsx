@@ -7,7 +7,7 @@ export default function Signup() {
 
   return (
     <AuthContainer>
-      <p className="text-center text-xl font-bold p-4">
+      <p className="text-center text-white text-xl font-bold p-4">
         Signup Step {pathname.includes("/signup/one") ? 1 : 2} of 2
       </p>
       <Outlet />

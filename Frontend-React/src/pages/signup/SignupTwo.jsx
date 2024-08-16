@@ -6,6 +6,7 @@ import FlagDropdown from "../../components/FlagDropdown";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { uid } from "uid";
+import ButtonPrimary from "../../components/ButtonPrimary";
 
 export default function SignupTwo() {
   const { userBasicDetails, signUpOneComplete } = useSelector(
@@ -56,7 +57,7 @@ export default function SignupTwo() {
               setSelectedFlag={setSelectedFlag}
             />
           </div>
-          <div className="border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 flex mb-4 text-sm bg-white">
+          <div className="border border-customGreen rounded-md shadow-sm focus:outline-none focus:ring-customGreen focus:border-customGreen flex mb-4 text-sm ">
             <PhonePrefixDropdown
               selectedPrefix={selectedPrefix}
               setSelectedPrefix={setSelectedPrefix}
@@ -73,7 +74,7 @@ export default function SignupTwo() {
               type="text"
               id="phoneNumber"
               name="phoneNumber"
-              className="w-full px-3 py-2 rounded-md focus:outline-none"
+              className="w-full bg-transparent px-3 py-2 rounded-md focus:outline-none"
               required
             />
           </div>
@@ -85,16 +86,11 @@ export default function SignupTwo() {
               type="email" // Change to "email" for better validation
               id="email"
               name="email"
-              className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              className="px-3 py-2 border border-customGreen rounded-md shadow-sm focus:outline-none focus:ring-customGreen focus:border-customGreen bg-transparent"
               required
             />
           </div>
-          <button
-            type="submit" // Add type="submit" to make sure the button triggers form submission
-            className="disabled:bg-cyan-400 disabled:text-stone-100 disabled:cursor-not-allowed block p-1 bg-cyan-500 text-stone-200 w-full my-4 rounded mx-auto"
-          >
-            Submit
-          </button>
+          <ButtonPrimary>Sign Up</ButtonPrimary>
         </form>
       ) : (
         <Navigate to="/signup/one" />

@@ -70,7 +70,7 @@ const FlagDropdown = ({selectedFlag, setSelectedFlag}) => {
     <div className="relative inline-block text-left">
       <div
         onClick={() => setIsOpen(!isOpen)}
-        className="inline-flex justify-between w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
+        className="inline-flex justify-between w-full rounded-md border-none shadow-sm px-4 py-2 bg-customAsh text-sm font-medium text-white focus:outline-none"
       >
         {selectedFlag ? selectedFlag : 'Select Country'}
         <svg className="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
