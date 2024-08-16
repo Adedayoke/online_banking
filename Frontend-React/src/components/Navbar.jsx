@@ -28,7 +28,7 @@ export default function Navbar() {
       <ul className="flex items-center justify-between">
         <li
           onClick={handleLogout}
-          className="px-3 py-2 md:mr-4 md:px-4 md:py-3 bg-stone-700 rounded cursor-pointer"
+          className="hidden px-3 py-2 md:mr-4 md:px-4 md:py-3 bg-stone-700 rounded cursor-pointer"
         >
           Logout
         </li>

@@ -82,7 +82,7 @@
       "recievedFrom": "Cashapp",
       "date": "12/12/2024",
       "amount": "5000",
-      "status": "Successful",
+      "status": "Failed",
       "id": "4d28"
     }
   ]

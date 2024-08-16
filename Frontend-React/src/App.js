@@ -20,24 +20,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <HomePage/>
       },
-      {
-        path: "signup",
-        element: <Signup/>,
-        children: [
-          {
-            path: "/signup/one",
-            element: <SignupOne />
-          },
-          {
-            path: "/signup/two",
-            element: <SignupTwo />
-          },
-        ]
-      },
-      {
-        path: "login",
-        element: <Login/>
-      },
+      
       {
         path: "withdraw",
         element: <Withdraw/>
@@ -55,7 +38,25 @@ const router = createBrowserRouter([
         element: <Me/>
       },
     ]
-  }
+  },
+  {
+    path: "signup",
+    element: <Signup/>,
+    children: [
+      {
+        path: "/signup/one",
+        element: <SignupOne />
+      },
+      {
+        path: "/signup/two",
+        element: <SignupTwo />
+      },
+    ]
+  },
+  {
+    path: "login",
+    element: <Login/>
+  },
 ])
 export default function App() {
   return (
