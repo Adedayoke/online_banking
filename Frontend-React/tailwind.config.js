@@ -14,7 +14,8 @@ module.exports = {
       },
       backgroundImage: {
         'radial-custom': 'radial-gradient(circle, #83d13a 5%, black 70%)',
-        'radial-pseudo-custom': 'radial-gradient(circle, #83d13a, transparent, transparent)',
+        'radial-pseudo-custom': 'radial-gradient(circle closest-side at 50% 50%, #83d13a 50%, transparent)',
+        'radial-second-custom': 'radial-gradient(130% 55% at 10% -30%, rgba(12, 172, 241) -90%, rgba(7, 123, 139, 0) 100%), #070F15;',
       },
     },
   },

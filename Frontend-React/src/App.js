@@ -1,65 +1,83 @@
-import React from 'react'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import HomePage from './pages/HomePage'
-import Signup from './pages/signup/Signup'
-import Login from './pages/Login'
-import AppLayout from './ui/AppLayout'
-import SignupOne from './pages/signup/SignupOne'
-import SignupTwo from './pages/signup/SignupTwo'
-import 'react-toastify/dist/ReactToastify.css';
-import Withdraw from './pages/transactionPages/Withdraw'
-import Deposit from './pages/transactionPages/Deposit'
-import Cards from './pages/transactionPages/Cards'
-import Me from './pages/transactionPages/Me'
+import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import Signup from "./pages/signup/Signup";
+import Login from "./pages/Login";
+import AppLayout from "./ui/AppLayout";
+import SignupOne from "./pages/signup/SignupOne";
+import SignupTwo from "./pages/signup/SignupTwo";
+import "react-toastify/dist/ReactToastify.css";
+import Withdraw from "./pages/transactionPages/Withdraw";
+import Deposit from "./pages/transactionPages/Deposit";
+import Cards from "./pages/transactionPages/Cards";
+import Me from "./pages/transactionPages/Me";
+import Admin from "./pages/admin/Admin";
+import AdminLogin from "./pages/admin/AdminLogin";
+import { ToastContainer } from "react-toastify";
+import AdminLayout from "./ui/AdminLayout";
 
 const router = createBrowserRouter([
   {
-    element: <AppLayout/>,
+    element: <AppLayout />,
     children: [
       {
         path: "/",
-        element: <HomePage/>
+        element: <HomePage />,
       },
-      
+
       {
         path: "withdraw",
-        element: <Withdraw/>
+        element: <Withdraw />,
       },
       {
         path: "deposit",
-        element: <Deposit/>
+        element: <Deposit />,
       },
       {
         path: "cards",
-        element: <Cards/>
+        element: <Cards />,
       },
       {
         path: "me",
-        element: <Me/>
+        element: <Me />,
       },
-    ]
+    ],
   },
   {
     path: "signup",
-    element: <Signup/>,
+    element: <Signup />,
     children: [
       {
         path: "/signup/one",
-        element: <SignupOne />
+        element: <SignupOne />,
       },
       {
         path: "/signup/two",
-        element: <SignupTwo />
+        element: <SignupTwo />,
       },
-    ]
+    ],
   },
   {
     path: "login",
-    element: <Login/>
+    element: <Login />,
   },
-])
+  {
+    element: <AdminLayout />,
+    children: [
+      {
+        element: <Admin />,
+        path: "/admin",
+      },
+      
+    ]
+  },
+  {
+    element: <AdminLogin />,
+    path: "/admin/login",
+  },
+ 
+]);
 export default function App() {
-  return (
-    <RouterProvider router={router} />
-  )
+  return <>
+  <ToastContainer /><RouterProvider router={router} /></>;
 }

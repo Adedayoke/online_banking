@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import NavigationContainer from "./NavigationContainer";
 import {
@@ -17,9 +17,15 @@ import {
 
 export default function Footer() {
   const { isLoggedIn } = useSelector((state) => state.userAuth);
+  const [translateSidebar, setTranslateSidebar] = useState("-100%")
+  const [opacity, setopacity] = useState("0")
+  useEffect(function(){
+    setTranslateSidebar("0")
+    setopacity("1")
+  }, [])
   if (isLoggedIn)
     return (
-      <footer className="absolute text-sm md:text-base left-0 w-full bottom-0 md:top-14 bg-coolAsh md:w-1/4 z-40 border-t md:border-t-0 md:border-r border-customGreen">
+      <footer style={{transform: `translateX(${translateSidebar})`, opacity: `${opacity}`, transition: 'all 1s'}} className="absolute text-sm md:text-base left-0 w-full bottom-0 md:top-14 bg-coolAsh md:w-1/4 z-40 border-t md:border-t-0 md:border-r border-customGreen">
         <ul className="flex h-full md:block items-center justify-between py-4 px-5 md:py-4 md:px-0">
           <NavigationContainer
             page=""

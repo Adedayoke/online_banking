@@ -19,6 +19,8 @@ export default function HomePage() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showBalance, setShowBalance] = useState(false);
   const dispatch = useDispatch();
+  const [translateTransaction, setTranslateTransaction] = useState("100%")
+  const [opacityBalance, setOpacityBalance] = useState("0")
 
   useEffect(
     function () {
@@ -55,6 +57,10 @@ export default function HomePage() {
       setConversionRate(1); // If USD is selected, no conversion needed
     }
   }, [selectedCurrency]);
+  useEffect(function(){
+    setOpacityBalance("1")
+    setTranslateTransaction("0px")
+  }, [])
 
   if (!isLoggedIn) return <Navigate to="/login" />;
 
@@ -69,11 +75,11 @@ export default function HomePage() {
   };
 
   const currencies = ["USD", "EUR", "GBP", "NGN"]; // Add more currencies as needed
+ 
 
   return (
     <div className="flex z-20 w-full md:absolute md:left-1/4  md:w-3/4 items-center justify-center md:h-full h-full pt-14 overflow-y-auto">
-      
-      <div className="w-full md:w-3/4 p-6 flex items-center justify-between flex-col overflow-y-auto ">
+      <div className="w-full md:w-4/5 p-7 flex items-center justify-between flex-col overflow-y-auto ">
         <div className="w-full">
           <div className="mr-2 mb-3 md:mr-4 font-bold p-4 text-white">
             Hi,{" "}
@@ -81,7 +87,7 @@ export default function HomePage() {
               {currentUser?.personalDetails?.userName}
             </span>
           </div>
-          <div className="w-full p-4 rounded-lg text-stone-100 mb-3">
+          <div className="card  w-full relative bg-coolAsh  p-4 rounded-lg text-stone-100 mb-3 md:mb-10" style={{opacity: opacityBalance, transition: 'all 1s'}}>
             <p className="mb-4 flex items-center">
               Available balance{" "}
               <span
@@ -111,23 +117,29 @@ export default function HomePage() {
         </div>
         <div className="flex w-full items-center p-0 justify-around  mx-0 my-4 rounded-xl font-semibold md:hidden">
           <Link to="/deposit">
-            <div className="flex items-center text-customGreen flex-col">
+            <div className="flex items-center text-white flex-col">
               <span className=" p-2 bg-lightGreen rounded-lg mb-2">
                 <PiBankBold size={26} />
+              </span>
+              <span className="text-sm">
+                Deposit
               </span>
             </div>
           </Link>
           <Link className=" block" to="/withdraw">
-            <div className="flex text-customGreen items-center flex-col">
+            <div className="flex text-white items-center flex-col">
               <span className=" bg-lightGreen p-2 rounded-lg mb-2">
                 <PiHandWithdrawFill size={26} />
+              </span>
+              <span className="text-sm">
+                Withdraw
               </span>
             </div>
           </Link>
         </div>
-        <div className="w-full rounded-xl bg-coolAsh p-4 h-96">
+        <div style={{transform: `translateY(${translateTransaction})`, transition: 'all .8s', opacity: opacityBalance}} className="w-full rounded-xl bg-coolAsh p-4 h-96">
           <h2 className="text-white font-bold rounded-lg mb-4">
-            Transaction History {">"}
+            <Link to='/transactions'>Transaction History {">"}</Link>
           </h2>
           {transactions.length > 0 ? (
             transactions?.map((transaction) => {
