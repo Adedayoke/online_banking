@@ -9,7 +9,7 @@ export default function AdminLayout() {
     className="h-svh bg-radial-custom relative overflow-x-hidden overflow-y-auto"
 
   >
-    <Overlay>
+    <Overlay extraClass="flex-col">
       <AdminNav />
       <Outlet />
     </Overlay>

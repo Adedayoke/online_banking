@@ -1,36 +1,24 @@
 {
   "signUpUser": {
-    "uid": "d6be75a671b",
+    "uid": "294aa617db9",
     "personalDetails": {
-      "name": "Ibraheem Olamilekan",
-      "userName": "Drone Boy",
-      "userPassword": "Ibraheem@01",
-      "phone": "+2348024325159",
-      "email": "ibro@gmail.com",
-      "country": "Nigeria"
+      "name": "user one",
+      "userName": "HE",
+      "userPassword": "user@2024Q",
+      "phone": "+494457678765",
+      "email": "user@gmail.com",
+      "country": "Israel"
     }
   },
   "loginUser": {
     "email": "adedayoke2006@gmail.com",
-    "password": "Ibraheema_1$"
+    "password": "Ibraheema1$"
   },
   "loginAdmin": {
     "email": "admin@gmail.com",
-    "password": "admin@gmail.com"
+    "password": "admin"
   },
   "users": [
-    {
-      "id": "",
-      "personalDetails": {
-        "name": "",
-        "userName": "",
-        "uid": "",
-        "userPassword": "",
-        "phone": "",
-        "email": "",
-        "country": ""
-      }
-    },
     {
       "id": "dc5e",
       "uid": "319012d149b",
@@ -65,6 +53,18 @@
         "phone": "+2348024325159",
         "email": "ibro@gmail.com",
         "country": "Nigeria"
+      }
+    },
+    {
+      "id": "84f2",
+      "uid": "f294aa617db",
+      "personalDetails": {
+        "name": "user one",
+        "userName": "HE",
+        "userPassword": "user@2024Q",
+        "phone": "+494457678765",
+        "email": "user@gmail.com",
+        "country": "Israel"
       }
     }
   ],
