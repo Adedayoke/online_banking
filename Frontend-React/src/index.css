@@ -2,23 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .jdnjf{
-  transform: ro;
-} */
- /* .card{
-  overflow-y:;
- } */
- /* .card::before{
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  background-color: rgb(6, 19, 27);
-  border-radius: 10px;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
-  perspective: 5500px;
-  transform-origin: left;
-  transform: translateX(-10px) translateX(-5px) rotateY(-60deg) rotateX(-10deg);
- } */
+.form__input:focus ~ .form__label,
+.form__input:not(:placeholder-shown) ~ .form__label {
+  left: 0.8rem;
+  top: -0.5rem;
+  font-size: 0.8rem;
+  opacity: .8;
+}
+
+.form__label {
+  transition: all 0.2s ease;
+}
+

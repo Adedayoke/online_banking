@@ -65,58 +65,54 @@ export default function Login() {
     <AuthContainer>
       {/* <p className="text-center text-xl font-bold p-4">Login</p> */}
       <form className="p-4 z-20" onSubmit={handleSubmit}>
-        <div className="flex flex-col mb-4 text-sm">
-          <label
-            className="text-base text-stone-100 font-semibold mb-2"
-            htmlFor="email"
-          >
-            Login ID
-          </label>
+        <p className="text-xl text-center mb-4 font-bold text-secondary">
+          Log into your account!
+        </p>
+        <div className="relative mb-4">
           <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter Email"
             type="email"
             id="email"
             name="email"
-            className="px-3 focus:text-customGreen py-2 border border-customGreen bg-transparent shadow-sm focus:outline-none focus:bg-white focus:ring-customGreen focus:border-customGreen rounded"
+            placeholder=" " // Empty placeholder to trigger :not(:placeholder-shown)
+            className="form__input w-full px-3 pt-3 py-2 bg-lightgray focus:outline-none text-lg rounded"
             required
           />
-        </div>
-        <div>
           <label
-            className="text-base text-stone-100 font-semibold mb-2"
-            htmlFor="password"
+            className="form__label absolute left-2 top-2 opacity-50 text-secondary font-semibold mb-2"
+            htmlFor="email"
           >
+            Email
+          </label>
+        </div>
+
+        <div className="relative mb-4">
+          <input
+            onChange={handlePasswordChange}
+            value={password}
+            type={showPassword ? "text" : "password"}
+            id="password"
+            name="password"
+            placeholder=" "
+            className="form__input px-3 pt-3 py-2 w-full bg-lightgray rounded-md focus:outline-none"
+            required
+          />
+          <label className="form__label absolute left-2 top-2 opacity-50 text-secondary font-semibold mb-2">
             Password
           </label>
-          <div className="border-customGreen bg-transparent shadow-sm focus:outline-none focus:ring-customGreen focus:border-customGreen flex mb-4 text-sm  border rounded">
-            <span className="w-1/12 text-white text-center flex items-center justify-center cursor-pointer">
-              <CiLock size={25} />
-            </span>
-            <input
-              onChange={handlePasswordChange}
-              value={password}
-              placeholder="Enter password"
-              type={showPassword ? "text" : "password"}
-              id="password"
-              name="password"
-              className="w-full text-white bg-transparent px-3 py-2 rounded-md focus:outline-none"
-              required
-            />
-            <span
-              className="w-1/12 text-white text-center flex items-center justify-center cursor-pointer"
-              onClick={handleTogglePasswordVisibility}
-            >
-              {showPassword ? <BiHide size={25} /> : <BiShow size={25} />}
-            </span>
-          </div>
+          <span
+            className="w-1/12 absolute right-0 top-3 text-secondary text-center flex items-center justify-center cursor-pointer"
+            onClick={handleTogglePasswordVisibility}
+          >
+            {showPassword ? <BiHide size={25} /> : <BiShow size={25} />}
+          </span>
         </div>
 
         {loginError && (
           <div className="text-red-500 text-xs mt-2 mb-2">{loginError}</div>
         )}
-        <div className="flex items-center justify-end text-base font-semibold text-customGreen">
+        <div className="flex items-center justify-end text-base font-semibold text-secondary">
           <Link className="flex items-center">
             <FaKey />
             <span className="ml-1">Forgot password?</span>
@@ -124,13 +120,13 @@ export default function Login() {
         </div>
         <button
           type="submit"
-          className="disabled:bg-[#83d03a] disabled:text-stone-100 disabled:cursor-not-allowed block p-1 bg-[#06151a] text-[#83d03a] w-full my-4 rounded mx-auto"
+          className="disabled:bg-[#83d03a] disabled:text-stone-100 disabled:cursor-not-allowed block p-1 bg-secondary text-white w-full my-4 rounded mx-auto"
         >
           Submit
         </button>
-        <p className="text-center text-base font-semibold text-white">
+        <p className="text-center text-base font-semibold text-secondary">
           Don't have an account?{" "}
-          <Link className="text-customGreen" to="/signup/one">
+          <Link className="underline" to="/signup/one">
             Sign Up
           </Link>
         </p>

@@ -70,7 +70,7 @@ const PhonePrefixDropdown = ({selectedPrefix, setSelectedPrefix}) => {
   return (
     <div className="relative w-3/12 inline-block text-left">
       <div
-        className="inline-flex justify-center w-full rounded-md border-none  shadow-sm px-4 py-2  text-sm font-medium text-customGreen focus:outline-none"
+        className="inline-flex justify-center w-full rounded-md border-none px-4 py-2  text-lg font-medium focus:outline-none"
         id="options-menu"
         onClick={()=>setSelected(false)}
       >
@@ -80,7 +80,7 @@ const PhonePrefixDropdown = ({selectedPrefix, setSelectedPrefix}) => {
         </svg>
       </div>
 
-      <div className={`${selected ? "hidden": "block"} marker:origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none h-40 overflow-y-auto`}>
+      <div className={`${selected ? "hidden": "block"} marker:origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none h-40 overflow-y-auto z-50`}>
         <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
           {phonePrefixes.map((prefix) => (
             <div

@@ -2,31 +2,39 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import NavigationContainer from "./NavigationContainer";
 import {
-  IoHomeOutline,
-  IoHomeSharp,
   IoCard,
   IoCardOutline,
+  IoHomeOutline,
+  IoHomeSharp,
 } from "react-icons/io5";
-import { RiUserSmileFill, RiUserSmileLine } from "react-icons/ri";
 import {
-  PiHandWithdrawLight,
-  PiHandWithdrawFill,
-  PiHandDepositLight,
   PiHandDepositFill,
+  PiHandDepositLight,
+  PiHandWithdrawFill,
+  PiHandWithdrawLight,
 } from "react-icons/pi";
+import { RiUserSmileFill, RiUserSmileLine } from "react-icons/ri";
 
-export default function Footer() {
+export default function Sidebar() {
   const { isLoggedIn } = useSelector((state) => state.userAuth);
-  const [translateSidebar, setTranslateSidebar] = useState("-100%")
-  const [opacity, setopacity] = useState("0")
-  useEffect(function(){
-    setTranslateSidebar("0")
-    setopacity("1")
-  }, [])
+  const [translateSidebar, setTranslateSidebar] = useState("-100%");
+  const [opacity, setopacity] = useState("0");
+  useEffect(function () {
+    setTranslateSidebar("0");
+    setopacity("1");
+  }, []);
   if (isLoggedIn)
     return (
-      <footer style={{transform: `translateX(${translateSidebar})`, opacity: `${opacity}`, transition: 'all 1s'}} className="block md:hidden absolute text-sm md:text-base left-0 w-full bottom-0  bg-coolAsh z-40 border-t md:border-r border-customGreen">
-        <ul className="flex h-full items-center justify-between py-4 px-5">
+      <div
+        style={{
+          transform: `translateX(${translateSidebar})`,
+          opacity: `${opacity}`,
+          transition: "all 1s",
+        }}
+        className="hidden md:block h-full absolute text-sm md:text-base left-0 md:top-0 bg-white w-1/5 z-40"
+      >
+        {" "}
+        <ul className="flex h-full md:block items-center justify-between py-4 px-5 md:py-4 md:px-0">
           <NavigationContainer
             page=""
             iconSelected={<IoHomeSharp />}
@@ -63,12 +71,6 @@ export default function Footer() {
             Me
           </NavigationContainer>
         </ul>
-      </footer>
+      </div>
     );
-
-  // return (
-  //   <footer className="bg-stone-700 h-40 text-stone-200 w-full">
-  //     my footer
-  //   </footer>
-  // );
 }

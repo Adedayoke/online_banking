@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { BiShow, BiHide } from "react-icons/bi";
-import { CiLock } from "react-icons/ci";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { signupOne } from "../../slice/authUserSlice";
 import ButtonPrimary from "../../components/ButtonPrimary";
-
 
 export default function SignupOne() {
   const [firstName, setFirstName] = useState("");
@@ -18,16 +16,16 @@ export default function SignupOne() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
-  
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleTogglePasswordVisibility = () => {
-    setShowPassword(prevShowPassword => !prevShowPassword);
+    setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
   const handleToggleConfirmPasswordVisibility = () => {
-    setShowConfirmPassword(prevShowPassword => !prevShowPassword);
+    setShowConfirmPassword((prevShowPassword) => !prevShowPassword);
   };
 
   const validatePassword = (password) => {
@@ -81,107 +79,144 @@ export default function SignupOne() {
     if (passwordError || confirmPasswordError) return;
 
     // Dispatch the signupOne action
-    dispatch(signupOne({ name: `${firstName} ${lastName}`, userName, userPassword }));
+    dispatch(
+      signupOne({ name: `${firstName} ${lastName}`, userName, userPassword })
+    );
     navigate("/signup/two");
   };
 
   return (
-    <form className="p-4" onSubmit={handleSubmit}>
-      <div className="flex flex-col mb-4 text-sm">
+    <form className="p-4 text-secondary" onSubmit={handleSubmit}>
+      <p className="text-xl text-center mb-4 font-bold">Let's create your account!</p>
+      
+      {/* First Name */}
+      <div className="relative mb-4">
         <input
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
-          placeholder="First Name"
           type="text"
           id="firstName"
           name="firstName"
-          className="focus:text-customAsh px-3 py-2 border border-none bg-customAsh shadow-sm focus:outline-none focus:bg-white focus:ring-customAsh focus:border-customAsh rounded text-white"
+          placeholder=" " // Empty placeholder to trigger :not(:placeholder-shown)
+          className="form__input w-full px-3 pt-3 py-2 bg-lightgray focus:outline-none text-lg rounded"
           required
         />
+        <label
+          className="form__label absolute left-2 top-2 opacity-50 text-secondary font-semibold mb-2"
+          htmlFor="firstName"
+        >
+          First Name
+        </label>
       </div>
-      <div className="flex flex-col mb-4 text-sm">
+
+      {/* Last Name */}
+      <div className="relative mb-4">
         <input
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
-          placeholder="Last Name"
           type="text"
           id="lastName"
           name="lastName"
-          className="focus:text-customAsh px-3 py-2 border border-none bg-customAsh shadow-sm focus:outline-none focus:bg-white focus:ring-customAsh focus:border-customAsh rounded text-white"
+          placeholder=" "
+          className="form__input w-full px-3 pt-3 py-2 bg-lightgray focus:outline-none text-lg rounded"
           required
         />
+        <label
+          className="form__label absolute left-2 top-2 opacity-50 text-secondary font-semibold mb-2"
+          htmlFor="lastName"
+        >
+          Last Name
+        </label>
       </div>
-      <div className="flex flex-col mb-4 text-sm">
+
+      {/* Username */}
+      <div className="relative mb-4">
         <input
           value={userName}
           onChange={(e) => setUserName(e.target.value)}
-          placeholder="Enter desired username"
           type="text"
-          id="username"
-          name="username"
-          className="focus:text-customAsh px-3 py-2 border border-none bg-customAsh shadow-sm focus:outline-none focus:bg-white focus:ring-customAsh focus:border-customAsh rounded text-white"
+          id="userName"
+          name="userName"
+          placeholder=" "
+          className="form__input w-full px-3 pt-3 py-2 bg-lightgray focus:outline-none text-lg rounded"
           required
         />
+        <label
+          className="form__label absolute left-2 top-2 opacity-50 text-secondary font-semibold mb-2"
+          htmlFor="userName"
+        >
+          Username
+        </label>
       </div>
-      <div className="border-none bg-customAsh shadow-sm focus:outline-none focus:ring-customAsh focus:border-white flex mb-4 text-sm  border rounded">
-        <span className="w-1/12 text-white text-center flex items-center justify-center cursor-pointer">
-          <CiLock  size={25} />
-        </span>
+
+      {/* Password */}
+      <div className="relative mb-4">
         <input
           onChange={handlePasswordChange}
           value={userPassword}
-          placeholder="Enter password"
           type={showPassword ? "text" : "password"}
           id="password"
           name="password"
-          className="w-full text-white focus:text-white bg-customAsh px-3 py-2 rounded-md focus:outline-none"
+          placeholder=" "
+          className={`form__input px-3 pt-3 py-2 w-full bg-lightgray rounded-md focus:outline-none ${passwordError ? "border-b-2 border-red-500": "text-secondary"}`}
           required
         />
+        <label className={`form__label ${passwordError ? "text-red-500": "text-secondary"} absolute left-2 top-2 opacity-50 font-semibold mb-2`}>
+          Password
+        </label>
         <span
-          className="w-1/12 text-center flex items-center justify-center cursor-pointer text-white"
+          className="w-1/12 absolute right-0 top-3 text-center flex items-center justify-center cursor-pointer"
           onClick={handleTogglePasswordVisibility}
         >
-          {showPassword ? <BiHide size={25} /> : <BiShow size={25} />}
+          {!showPassword ? <BiHide size={25} /> : <BiShow size={25} />}
         </span>
       </div>
+
+      {/* Password Error */}
       {passwordError && (
         <div className="text-red-500 text-xs mt-2 mb-2">{passwordError}</div>
       )}
 
-      <div className="border-none bg-customAsh shadow-sm focus:outline-none focus:ring-customAsh focus:border-white flex mb-4 text-sm  border rounded">
-        <span className="w-1/12 text-white text-center flex items-center justify-center cursor-pointer">
-          <CiLock size={25} />
-        </span>
+      {/* Confirm Password */}
+      <div className="relative mb-4">
         <input
           onChange={handleConfirmPasswordChange}
           value={confirmPassword}
-          placeholder="Confirm password"
           type={showConfirmPassword ? "text" : "password"}
-          id="confirmPassword"
-          name="confirmPassword"
-          className="w-full text-white focus:text-white bg-customAsh px-3 py-2 rounded-md focus:outline-none"
+          id="confirmpassword"
+          name="confirmpassword"
+          placeholder=" "
+          className={`form__input px-3 pt-3 py-2 w-full bg-lightgray rounded-md focus:outline-none ${confirmPasswordError ? "border-b-2 border-red-500": "text-secondary"}`}
           required
         />
+        <label className={`form__label ${confirmPasswordError ? "text-red-500": "text-secondary"} absolute left-2 top-2 opacity-50 font-semibold mb-2`}>
+          Confirm Password
+        </label>
         <span
-          className="w-1/12   text-center flex items-center justify-center cursor-pointer text-white"
+          className="w-1/12 absolute right-0 top-3 text-center flex items-center justify-center cursor-pointer"
           onClick={handleToggleConfirmPasswordVisibility}
         >
-          {showConfirmPassword ? <BiHide size={25} /> : <BiShow size={25} />}
+          {!showConfirmPassword ? <BiHide size={25} /> : <BiShow size={25} />}
         </span>
       </div>
+
+      {/* Confirm Password Error */}
       {confirmPasswordError && (
         <div className="text-red-500 text-xs mt-2 mb-2">
           {confirmPasswordError}
         </div>
       )}
 
-      <ButtonPrimary disabled={passwordError || confirmPasswordError}>Submit</ButtonPrimary>
-      <p className="text-center text-base font-semibold text-white">
-          Already have an account?{" "}
-          <Link className="text-customGreen" to="/login">
-            Login
-          </Link>
-        </p>
+      {/* Submit Button */}
+      <ButtonPrimary disabled={passwordError || confirmPasswordError}>
+        Next
+      </ButtonPrimary>
+      <p className="text-center text-base font-semibold">
+        Already have an account?{" "}
+        <Link className="underline" to="/login">
+          Login
+        </Link>
+      </p>
     </form>
   );
 }

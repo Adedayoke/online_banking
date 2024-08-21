@@ -51,13 +51,14 @@ export default function SignupTwo() {
     <>
       {signUpOneComplete ? (
         <form className="p-4" onSubmit={handleSubmit}>
-          <div className="flex flex-col mb-4 text-sm">
+          <p className="text-xl text-center mb-4 font-bold text-secondary">Final Step to Sign Up!</p>
+          <div className="flex flex-col mb-4 px-3 pt-3 py-2 w-full bg-lightgray rounded-md ">
             <FlagDropdown
               selectedFlag={selectedFlag}
               setSelectedFlag={setSelectedFlag}
             />
           </div>
-          <div className="border border-customGreen rounded-md shadow-sm focus:outline-none focus:ring-customGreen focus:border-customGreen flex mb-4 text-sm ">
+          <div className="px-3 pt-3 py-2 w-full bg-lightgray rounded-md focus:outline-none flex mb-4 text-secondary text-lg ">
             <PhonePrefixDropdown
               selectedPrefix={selectedPrefix}
               setSelectedPrefix={setSelectedPrefix}
@@ -70,7 +71,7 @@ export default function SignupTwo() {
                 }
               }}
               value={phoneNumber}
-              placeholder="Enter phone number"
+              placeholder="**** *** ***"
               type="text"
               id="phoneNumber"
               name="phoneNumber"
@@ -78,18 +79,24 @@ export default function SignupTwo() {
               required
             />
           </div>
-          <div className="flex flex-col mb-4 text-sm">
-            <input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter email"
-              type="email" // Change to "email" for better validation
-              id="email"
-              name="email"
-              className="px-3 py-2 border border-customGreen rounded-md shadow-sm focus:outline-none focus:ring-customGreen focus:border-customGreen bg-transparent"
-              required
-            />
-          </div>
+          <div className="relative mb-4">
+          <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            id="email"
+            name="email"
+            placeholder=" " // Empty placeholder to trigger :not(:placeholder-shown)
+            className="form__input w-full px-3 pt-3 py-2 bg-lightgray focus:outline-none text-lg rounded"
+            required
+          />
+          <label
+            className="form__label absolute left-2 top-2 opacity-50 text-secondary font-semibold mb-2"
+            htmlFor="email"
+          >
+            Email
+          </label>
+        </div>
           <ButtonPrimary>Sign Up</ButtonPrimary>
         </form>
       ) : (

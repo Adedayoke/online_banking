@@ -15,6 +15,8 @@ import Admin from "./pages/admin/Admin";
 import AdminLogin from "./pages/admin/AdminLogin";
 import { ToastContainer } from "react-toastify";
 import AdminLayout from "./ui/AdminLayout";
+import Passcode from "./pages/signup/Passcode";
+import ConfirmPasscode from "./pages/signup/ConfirmPasscode";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +56,16 @@ const router = createBrowserRouter([
       {
         path: "/signup/two",
         element: <SignupTwo />,
+        children: [
+          {
+            path: "/signup/two/setpasscode",
+            element: <Passcode />
+          },
+          {
+            path: "/signup/two/confirmpasscode",
+            element: <ConfirmPasscode />
+          }
+        ]
       },
     ],
   },

@@ -17,7 +17,7 @@ export default function NavigationContainer({
         pathname !== `/${page}` && "md:hover:bg-lightGreen"
       } ${
         page === "withdraw" || page === "deposit" ? "hidden md:block" : "block"
-      } text-white md:w-full md:p-4 md:text-left  md:cursor-pointer`}
+      } md:w-full md:p-4 md:text-left  md:cursor-pointer`}
     >
       <Link
         className="w-full md:flex-row text-center md:text-left flex items-center flex-col"
@@ -26,11 +26,11 @@ export default function NavigationContainer({
         {pathname === `/${page}` ? (
           <span className="md:mr-4">{iconSelected}</span>
         ) : (
-          <span className="md:mr-4 text-customGreen">{iconUnselected}</span>
+          <span className="md:mr-4 ">{iconUnselected}</span>
         )}
         <span
           className={`${
-            pathname === `/${page}` ? "text-white" : "text-customGreen"
+            pathname === `/${page}` ? "text-white" : ""
           }  `}
         >
           {children}

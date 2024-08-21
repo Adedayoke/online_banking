@@ -10,7 +10,11 @@ module.exports = {
         lightGreen: '#83d13a4d',
         customAsh: '#3d3f3f',
         customOverlay: '#000000b3',
-        coolAsh: '#06151a'
+        coolAsh: '#06151a',
+        primary: '#83d13a',
+        shadePrimary: '#83d13a4d',
+        secondary: '#06151a',
+        lightgray : '#f2f2f2'
       },
       backgroundImage: {
         'radial-custom': 'radial-gradient(circle, #83d13a 5%, black 70%)',

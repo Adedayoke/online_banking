@@ -67,10 +67,10 @@ const FlagDropdown = ({selectedFlag, setSelectedFlag}) => {
   };
 
   return (
-    <div className="relative inline-block text-left">
+    <div className="relative inline-block text-left ">
       <div
         onClick={() => setIsOpen(!isOpen)}
-        className="inline-flex justify-between w-full rounded-md border-none shadow-sm px-4 py-2 bg-customAsh text-sm font-medium text-white focus:outline-none"
+        className="inline-flex justify-between w-full rounded-md border-none shadow-sm px-4 py-2 bg-lightgray text-lg font-medium text-secondary focus:outline-none"
       >
         {selectedFlag ? selectedFlag : 'Select Country'}
         <svg className="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -79,7 +79,7 @@ const FlagDropdown = ({selectedFlag, setSelectedFlag}) => {
       </div>
 
       {isOpen && (
-        <div className="overflow-y-auto h-48 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <div className="overflow-y-auto h-48 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
           <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="flags-menu">
             {flags.map((flag) => (
               <div
