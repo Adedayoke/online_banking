@@ -11,6 +11,7 @@ import { setTransaction } from "../slice/balanceSlice";
 import Overlay from "../components/Overlay";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { TbCoin } from "react-icons/tb";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 export default function HomePage() {
   const { isLoggedIn, currentUser } = useSelector((state) => state.userAuth);
@@ -80,7 +81,7 @@ export default function HomePage() {
   const currencies = ["USD", "EUR", "GBP", "NGN"]; // Add more currencies as needed
 
   return (
-    <div className="z-20 w-full left-0 md:absolute md:left-[20%]  md:w-[80%] items-center justify-center h-full p-4 overflow-y-auto grid grid-cols-2 grid-rows-2 gap-4">
+    <div className="z-20 w-full left-0 md:absolute md:left-[20%]  md:w-[80%] items-center justify-center h-full p-4 overflow-y-auto grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 gap-4">
       <div className="text-white rounded-2xl bg-white h-full">
         <div className="h-3/4 rounded-2xl p-4 bg-secondary flex flex-col justify-between">
           <div>
@@ -88,7 +89,7 @@ export default function HomePage() {
             <p className="font-semibold text-3xl">$0.00</p>
           </div>
           <div>
-            <div className="bg-[#f2f2f24d] cont w-1/4 rounded-2xl text-xl p-2">
+            <div className="bg-[#f2f2f24d] w-2/6 md:w-1/4 rounded-2xl text-lg md:text-xl p-2">
               <p>+ $0.00</p>
               <p>- $0.00</p>
             </div>
@@ -98,18 +99,27 @@ export default function HomePage() {
         <div className="flex h-1/4 items-center justify-around">
           <div className="bg-primary text-base cursor-pointer flex items-center justify-center font-semibold rounded-full py-2 text-secondary w-[45%]">
             <span className="mr-1">Add Funds</span>
-            <span><TbCoin size={20} /></span>
+            <span>
+              <TbCoin size={20} />
+            </span>
           </div>
           <div className="bg-lightgray text-base cursor-pointer flex items-center justify-center font-semibold rounded-full py-2 text-secondary w-[45%]">
             <span className="mr-1">Transfer</span>
-            <span><BiTransfer size={20} /></span>
+            <span>
+              <BiTransfer size={20} />
+            </span>
           </div>
         </div>
       </div>
       <div className="h-full">
         <p className="font-semibold mb-2 text-lg">Linked Accounts</p>
         <div className="bg-white p-3 h-[90%] rounded-2xl">
-          <p className="text-secondary rounded-2xl flex items-center cursor-pointer py-3 font-semibold hover:bg-lightgray mb-2"><span className="mr-2"><IoAddCircleOutline size={40} /></span>Link an account</p>
+          <p className="text-secondary rounded-2xl flex items-center cursor-pointe font-semibold hover:bg-lightgray mb-2">
+            <span className="mr-2">
+              <IoAddCircleOutline size={40} />
+            </span>
+            Link an account
+          </p>
           <hr className="border-secondary" />
           {linkedAccounts.length > 0 ? (
             <ul className="overflow-y-scroll">
@@ -122,11 +132,44 @@ export default function HomePage() {
       </div>
       <div className="h-full">
         <p className="font-semibold mb-2 text-lg">Finance</p>
-        <div className=" h-[90%] bg-white rounded-2xl">
-          <ul>
-            <li><span></span><span>Transactions</span></li>
-            <li><span></span><span>Crypto</span></li>
-            <li><span></span><span>Loans</span></li>
+        <div className=" h-[90%] bg-white p-4 rounded-2xl">
+          <ul className="">
+            <li className="text-lg flex items-center justify-between">
+              <div className="w-[90%]">
+                <div></div>
+                <ul className="border-b-[0.5px] py-3 border-secondary">
+                  <li className="font-bold">Transactions</li>
+                  <li className="text-sm">Lorem ipsum dolor sit.</li>
+                </ul>
+              </div>
+              <div className="w-[10%] h-full flex items-center justify-center">
+                <MdOutlineKeyboardArrowRight />
+              </div>
+            </li>
+            <li className="text-lg flex items-center justify-between">
+              <div className="w-[90%]">
+                <div></div>
+                <ul className="border-b-[0.5px] py-3 border-secondary">
+                  <li className="font-bold">Crypto</li>
+                  <li className="text-sm">Lorem ipsum dolor sit.</li>
+                </ul>
+              </div>
+              <div className="w-[10%] h-full flex items-center justify-center">
+                <MdOutlineKeyboardArrowRight />
+              </div>
+            </li>
+            <li className="text-lg flex items-center justify-between">
+              <div className="w-[90%]">
+                <div></div>
+                <ul className="border-b-[0.5px] py-3 border-secondary">
+                  <li className="font-bold">Loans</li>
+                  <li className="text-sm">Lorem ipsum dolor sit.</li>
+                </ul>
+              </div>
+              <div className="w-[10%] h-full flex items-center justify-center">
+                <MdOutlineKeyboardArrowRight />
+              </div>
+            </li>
           </ul>
         </div>
       </div>

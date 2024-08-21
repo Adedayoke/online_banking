@@ -21,13 +21,13 @@ export default function AppLayout() {
   return (
     <div
       onMouseMove={handleMousemove}
-      className="h-svh bg-lightgray relative overflow-x-hidden overflow-y-auto">
-      <Overlay>
+      className="h-vh md:h-svh bg-lightgray relative overflow-x-hidden overflow-y-scroll">
+      {/* <Overlay> */}
         <Navbar />
         <Outlet />
         <Sidebar />
         <Footer />
-      </Overlay>
+      {/* </Overlay> */}
     </div>
   );
 }

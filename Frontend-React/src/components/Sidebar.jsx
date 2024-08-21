@@ -14,6 +14,7 @@ import {
   PiHandWithdrawLight,
 } from "react-icons/pi";
 import { RiUserSmileFill, RiUserSmileLine } from "react-icons/ri";
+import Carousel from "./Carousel";
 
 export default function Sidebar() {
   const { isLoggedIn } = useSelector((state) => state.userAuth);
@@ -34,34 +35,46 @@ export default function Sidebar() {
         className="hidden md:block h-full absolute text-sm md:text-base left-0 md:top-0 bg-white w-1/5 z-40"
       >
         {" "}
+        <div className="h-[30%] p-2 text-secondary">
+            <div className="border h-full rounded-lg p-2 border-customGreen">
+            <Carousel />
+            </div>
+        </div>
         <ul className="flex h-full md:block items-center justify-between py-4 px-5 md:py-4 md:px-0">
           <NavigationContainer
             page=""
             iconSelected={<IoHomeSharp />}
             iconUnselected={<IoHomeOutline />}
           >
-            Home
+            My Bank
           </NavigationContainer>
           <NavigationContainer
             page="withdraw"
             iconSelected={<PiHandWithdrawFill />}
             iconUnselected={<PiHandWithdrawLight />}
           >
-            Withdraw
+            Rewards
           </NavigationContainer>
           <NavigationContainer
             page="deposit"
             iconSelected={<PiHandDepositFill />}
             iconUnselected={<PiHandDepositLight />}
           >
-            Deposit
+            Auto Insurance
+          </NavigationContainer>
+          <NavigationContainer
+            page="deposit"
+            iconSelected={<PiHandDepositFill />}
+            iconUnselected={<PiHandDepositLight />}
+          >
+            Instacash Advance
           </NavigationContainer>
           <NavigationContainer
             page="cards"
             iconSelected={<IoCard />}
             iconUnselected={<IoCardOutline />}
           >
-            Cards
+            Managed Investing
           </NavigationContainer>
           <NavigationContainer
             page="me"

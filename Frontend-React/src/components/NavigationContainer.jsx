@@ -30,7 +30,7 @@ export default function NavigationContainer({
         )}
         <span
           className={`${
-            pathname === `/${page}` ? "text-white" : ""
+            pathname === `/${page}` ? "text-black font-semibold" : ""
           }  `}
         >
           {children}

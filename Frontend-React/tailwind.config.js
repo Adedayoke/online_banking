@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       colors: {
         customGreen: '#83d13a',
-        lightGreen: '#83d13a4d',
+        lightGreen: '#b4e388',
         customAsh: '#3d3f3f',
         customOverlay: '#000000b3',
         coolAsh: '#06151a',
