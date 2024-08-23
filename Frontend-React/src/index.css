@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+body{
+  font-family: "Roboto", sans-serif;
+}
+*{
+  box-sizing: border-box;
+}
 .form__input:focus ~ .form__label,
 .form__input:not(:placeholder-shown) ~ .form__label {
   left: 0.8rem;
@@ -13,6 +20,30 @@
 .form__label {
   transition: all 0.2s ease;
 }
-.stgb{
-  background-color: #83d13acc;
+.hor-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
 }
+
+.card-display {
+  aspect-ratio: 16/9;
+  flex-shrink: 0;
+  margin-right: 1rem; /* Adjust the spacing between cards */
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+/* .scrollbar-thumb-rounded-full {
+  scrollbar-color: #4B5563 transparent; 
+}
+
+.scrollbar-thumb-secondary {
+  scrollbar-color: #A78BFA #E5E7EB; 
+} */
+
+/* .stgb{
+  background-color: ;
+} */

@@ -40,7 +40,7 @@ export default function Sidebar() {
             <Carousel />
             </div>
         </div>
-        <ul className="flex h-full md:block items-center justify-between py-4 px-5 md:py-4 md:px-0">
+        <ul className="flex h-[70%] md:block items-center justify-between py-4 px-5 md:py-4 md:px-0">
           <NavigationContainer
             page=""
             iconSelected={<IoHomeSharp />}

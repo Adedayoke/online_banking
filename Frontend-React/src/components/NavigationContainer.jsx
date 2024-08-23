@@ -12,9 +12,9 @@ export default function NavigationContainer({
     <li
       className={`${
         pathname === `/${page}` &&
-        "md:bg-customGreen md:border-l-4 md:border-coolAsh"
+        "border-l-4 bg-lightGreen"
       } ${
-        pathname !== `/${page}` && "md:hover:bg-lightGreen"
+        pathname !== `/${page}` && "md:hover:bg-lightgray"
       } ${
         page === "withdraw" || page === "deposit" ? "hidden md:block" : "block"
       } md:w-full md:p-4 md:text-left  md:cursor-pointer`}
