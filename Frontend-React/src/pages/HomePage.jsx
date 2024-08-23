@@ -88,7 +88,7 @@ export default function HomePage() {
         <div className="h-5/6 relative overflow-hidden">
         {/* <div className="h-3/4 hor-scroll overflow-x-auto scrollbar-thin scrollbar-thumb-rounded-full scrollbar-thumb-secondary relative"> */}
            <div className="flex space-x-4 " style={{transform: `translateX(${currentCard === "card2" ? "-40%" : currentCard === 'card1' ? "15%" : "-100%" })`, transition: 'all .5s'}}>
-            <div className="card-display h-full bg-blue-600 rounded-2xl flex-shrink-0 w-[80%] md:w-[60%] p-5"
+            <div onMouseEnter={()=>setCurrentCard("card1")} className="card-display h-full bg-blue-600 rounded-2xl flex-shrink-0 w-[80%] md:w-[60%] p-5"
            >
               <div className="h-full w-full rounded-2xl flex flex-col justify-between">
                 <div className="h-2/5 flex flex-col justify-between">
@@ -106,7 +106,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            <div className="card-display h-full bg-secondary rounded-2xl flex-shrink-0 w-[80%] md:w-[60%] p-5"
+            <div onMouseEnter={()=>setCurrentCard("card2")} className="card-display h-full bg-secondary rounded-2xl flex-shrink-0 w-[80%] md:w-[60%] p-5"
            >
               <div className="h-full w-full rounded-2xl flex flex-col justify-between">
                 <div className="h-2/5 flex flex-col justify-between">
@@ -124,7 +124,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            <div className="card-display h-full bg-yellow-600 rounded-2xl flex-shrink-0 w-[80%] md:w-[60%] p-5"
+            <div onMouseEnter={()=>setCurrentCard("card3")} className="card-display h-full bg-yellow-600 rounded-2xl flex-shrink-0 w-[80%] md:w-[60%] p-5"
            >
               <div className="h-full w-full rounded-2xl flex flex-col justify-between">
                 <div className="h-2/5 flex flex-col justify-between">
@@ -146,13 +146,13 @@ export default function HomePage() {
 
             {/* Add more card-display divs as needed */}
           </div>
-         <div className="absolute flex items-center justify-center left-0 bottom-0 w-full h-10 z-60">
+         {/* <div className="absolute flex items-center justify-center left-0 bottom-0 w-full h-10 z-60">
          <div className="flex items-center justify-around w-12 h-full left-1/2  ">
             <span onClick={()=>setCurrentCard("card1")} className="h-3 cursor-pointer block rounded-full w-3 bg-white"></span>
             <span onClick={()=>setCurrentCard("card2")} className="h-3 cursor-pointer block rounded-full w-3 bg-white"></span>
             <span onClick={()=>setCurrentCard("card3")} className="h-3 cursor-pointer block rounded-full w-3 bg-white"></span>
           </div>
-         </div>
+         </div> */}
         </div>
 
         <div className="flex h-1/6 items-center justify-center">
@@ -172,9 +172,9 @@ export default function HomePage() {
       </div>
 
       <div className="flex items-center justify-between h-[30%]">
-        <div className="h-full basis-1/2 w-[35%] overflow-y-auto mr-4">
+        <div className="h-full bg-white basis-1/2 w-[35%] overflow-y-auto mr-4">
           <p className="font-semibold mb-2 text-lg">Finance</p>
-          <div className=" h-[90%] bg-white p-4 rounded-2xl">
+          <div className=" h-full bg-white p-4 rounded-2xl">
             <ul className="">
               <li className="text-lg flex items-center justify-between">
                 <div className="w-[90%]">
