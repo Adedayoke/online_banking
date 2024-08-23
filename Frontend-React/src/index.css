@@ -27,7 +27,7 @@ body{
 }
 
 .card-display {
-  aspect-ratio: 16/9;
+  aspect-ratio: 16/8;
   flex-shrink: 0;
   margin-right: 1rem; /* Adjust the spacing between cards */
 }

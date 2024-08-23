@@ -84,10 +84,10 @@ export default function HomePage() {
 
   return (
     <div className="z-20 w-full h-full left-0 md:absolute md:left-[20%] md:w-[80%] p-4 ">
-      <div className="h-[70%] ">
+      <div className="h-[65%] ">
         <div className="h-5/6 relative overflow-hidden">
         {/* <div className="h-3/4 hor-scroll overflow-x-auto scrollbar-thin scrollbar-thumb-rounded-full scrollbar-thumb-secondary relative"> */}
-           <div className="flex space-x-4 " style={{transform: `translateX(${currentCard === "card2" ? "-40%" : currentCard === 'card1' ? "15%" : "-100%" })`, transition: 'all .5s'}}>
+           <div className="flex space-x-4 " style={{transform: `translateX(${currentCard === "card2" ? "-40%" : currentCard === 'card1' ? "10%" : "-100%" })`, transition: 'all .5s'}}>
             <div onMouseEnter={()=>setCurrentCard("card1")} className="card-display h-full bg-blue-600 rounded-2xl flex-shrink-0 w-[80%] md:w-[60%] p-5"
            >
               <div className="h-full w-full rounded-2xl flex flex-col justify-between">
