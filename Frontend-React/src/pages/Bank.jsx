@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, Outlet } from "react-router-dom";
 import CurrencyDropdown from "../components/CurrencyDropdown";
 import { BiHide, BiShow, BiTransfer } from "react-icons/bi";
 import { PiHandWithdrawFill } from "react-icons/pi";
 import { PiBankBold } from "react-icons/pi";
 import Transactions from "../components/Transactions";
 import { setTransaction } from "../slice/balanceSlice";
-import Overlay from "../components/Overlay";
+// import Overlay from "../components/Overlay";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { TbCoin } from "react-icons/tb";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
-export default function HomePage() {
+export default function Bank() {
   const { isLoggedIn, currentUser } = useSelector((state) => state.userAuth);
   const { transactions } = useSelector((state) => state.userBalanceDetails);
   const [selectedCurrency, setSelectedCurrency] = useState("USD");
@@ -68,7 +68,6 @@ export default function HomePage() {
     setTranslateTransaction("0px");
   }, []);
 
-  if (!isLoggedIn) return <Navigate to="/login" />;
 
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
@@ -83,7 +82,9 @@ export default function HomePage() {
   const currencies = ["USD", "EUR", "GBP", "NGN"]; // Add more currencies as needed
 
   return (
-    <div className="z-20 w-full h-full left-0 md:absolute md:left-[20%] md:w-[80%] p-4 ">
+    <>
+    <Outlet />
+      <div className="z-20 w-full h-full left-0 md:absolute md:left-[20%] md:w-[80%] p-4 overflow-y-auto">
       <div className="h-[65%] ">
         <div className="h-5/6 relative overflow-hidden">
         {/* <div className="h-3/4 hor-scroll overflow-x-auto scrollbar-thin scrollbar-thumb-rounded-full scrollbar-thumb-secondary relative"> */}
@@ -157,30 +158,34 @@ export default function HomePage() {
 
         <div className="flex h-1/6 items-center justify-center">
           <div className="bg-primary text-base cursor-pointer flex items-center justify-center font-semibold rounded-full mr-4 py-2 text-secondary w-[15%]">
-            <span className="mr-1">Add Funds</span>
+            <span className="mr-1">
+              <Link to="/bank/deposit">
+            Add Funds</Link>
+            </span>
             <span>
               <TbCoin size={20} />
             </span>
           </div>
           <div className="bg-secondary text-base cursor-pointer flex items-center justify-center font-semibold rounded-full py-2 text-white w-[15%]">
-            <span className="mr-1">Transfer</span>
+            <span className="mr-1"><Link to="/bank/transfer">Transfer</Link></span>
             <span>
-              <BiTransfer size={20} />
+              <BiTransfer size={20}/>
             </span>
           </div>
         </div>
       </div>
 
-      <div className="flex items-center justify-between h-[30%]">
-        <div className="h-full bg-white basis-1/2 w-[35%] overflow-y-auto mr-4">
-          <p className="font-semibold mb-2 text-lg">Finance</p>
-          <div className=" h-full bg-white p-4 rounded-2xl">
-            <ul className="">
-              <li className="text-lg flex items-center justify-between">
+      <div className="flex items-center justify-between h-[50%] mt-6">
+        <div className="h-full basis-1/2 w-[35%] mr-4">
+          <div className=" h-full bg-white overflow-y-auto rounded-2xl">
+          <p className="font-bold mb-2 text-xl px-4 pt-2">Finance</p>
+          <hr />
+            <ul className="px-4">
+              <li className="flex items-center justify-between">
                 <div className="w-[90%]">
                   <div></div>
                   <ul className="border-b-[0.5px] py-3 border-secondary">
-                    <li className="font-bold">Transactions</li>
+                    <li className="font-semibold ">Instacash Advance</li>
                     <li className="text-sm">Lorem ipsum dolor sit.</li>
                   </ul>
                 </div>
@@ -188,11 +193,11 @@ export default function HomePage() {
                   <MdOutlineKeyboardArrowRight />
                 </div>
               </li>
-              <li className="text-lg flex items-center justify-between">
+              <li className="flex items-center justify-between">
                 <div className="w-[90%]">
                   <div></div>
                   <ul className="border-b-[0.5px] py-3 border-secondary">
-                    <li className="font-bold">Crypto</li>
+                    <li className="font-semibold ">Managed Investing</li>
                     <li className="text-sm">Lorem ipsum dolor sit.</li>
                   </ul>
                 </div>
@@ -200,11 +205,11 @@ export default function HomePage() {
                   <MdOutlineKeyboardArrowRight />
                 </div>
               </li>
-              <li className="text-lg flex items-center justify-between">
+              <li className="flex items-center justify-between">
                 <div className="w-[90%]">
                   <div></div>
                   <ul className="border-b-[0.5px] py-3 border-secondary">
-                    <li className="font-bold">Loans</li>
+                    <li className="font-semibold ">Loans</li>
                     <li className="text-sm">Lorem ipsum dolor sit.</li>
                   </ul>
                 </div>
@@ -216,10 +221,17 @@ export default function HomePage() {
           </div>
         </div>
         <div className="h-full basis-1/2 w-[35%]">
-          <p className="font-semibold mb-2 text-lg">Your Spending Breakdown</p>
-          <div className="bg-white h-[90%] rounded-2xl w-full">zdxrtghxfg</div>
+          <div className="bg-white h-[90%] rounded-2xl w-full">
+          <p className="font-bold mb-2 text-xl px-4 pt-2">Transactions</p>
+          <hr />
+          <div>
+          zascdszfsfdgukf
+          </div>
+
+          </div>
         </div>
       </div>
     </div>
+    </>
   );
 }

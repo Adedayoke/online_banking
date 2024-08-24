@@ -46,7 +46,7 @@ export default function Login() {
             })
           );
           toast.success("User LoggedIn Successfully");
-          navigate("/");
+          navigate("/bank");
         } else {
           setLoginError("User details not found.");
           toast.error("User details not found. Try again.");

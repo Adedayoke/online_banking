@@ -1,13 +1,13 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import HomePage from "./pages/HomePage";
+import Bank from "./pages/Bank";
 import Signup from "./pages/signup/Signup";
 import Login from "./pages/Login";
 import AppLayout from "./ui/AppLayout";
 import SignupOne from "./pages/signup/SignupOne";
 import SignupTwo from "./pages/signup/SignupTwo";
 import "react-toastify/dist/ReactToastify.css";
-import Withdraw from "./pages/transactionPages/Withdraw";
+import Transfer from "./pages/transactionPages/Transfer";
 import Deposit from "./pages/transactionPages/Deposit";
 import Cards from "./pages/transactionPages/Cards";
 import Me from "./pages/transactionPages/Me";
@@ -17,32 +17,39 @@ import { ToastContainer } from "react-toastify";
 import AdminLayout from "./ui/AdminLayout";
 import Passcode from "./pages/signup/Passcode";
 import ConfirmPasscode from "./pages/signup/ConfirmPasscode";
+import Welcome from "./pages/Welcome";
 
 const router = createBrowserRouter([
+  {
+    element: <Welcome />,
+    path: "/"
+  },
   {
     element: <AppLayout />,
     children: [
       {
-        path: "/",
-        element: <HomePage />,
+        path: "/bank",
+        element: <Bank />,
+        children: [
+          {
+            path: "/bank/transfer",
+            element: <Transfer />,
+          },
+          {
+            path: "/bank/deposit",
+            element: <Deposit />,
+          },
+          {
+            path: "/bank/cards",
+            element: <Cards />,
+          },
+          {
+            path: "/bank/me",
+            element: <Me />,
+          },
+        ]
       },
-
-      {
-        path: "withdraw",
-        element: <Withdraw />,
-      },
-      {
-        path: "deposit",
-        element: <Deposit />,
-      },
-      {
-        path: "cards",
-        element: <Cards />,
-      },
-      {
-        path: "me",
-        element: <Me />,
-      },
+      
     ],
   },
   {

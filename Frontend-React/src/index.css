@@ -35,7 +35,12 @@ body{
 .scrollbar-thin {
   scrollbar-width: thin;
 }
-
+.sidebarScroll{
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+  scrollbar-track-color: #06151a;
+  scrollbar-color: #00e5c6;
+}
 /* .scrollbar-thumb-rounded-full {
   scrollbar-color: #4B5563 transparent; 
 }

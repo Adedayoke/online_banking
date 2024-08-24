@@ -12,12 +12,12 @@ export default function NavigationContainer({
     <li
       className={`${
         pathname === `/${page}` &&
-        "border-l-4 bg-lightGreen"
+        "border-l-4 border-b-0 border-l-primary bg-lightGreen"
       } ${
         pathname !== `/${page}` && "md:hover:bg-lightgray"
       } ${
         page === "withdraw" || page === "deposit" ? "hidden md:block" : "block"
-      } md:w-full md:p-4 md:text-left  md:cursor-pointer`}
+      } border-b-2 md:w-full md:p-4 md:text-left  md:cursor-pointer`}
     >
       <Link
         className="w-full md:flex-row text-center md:text-left flex items-center flex-col"
