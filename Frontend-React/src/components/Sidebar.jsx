@@ -34,7 +34,7 @@ export default function Sidebar() {
           opacity: `${opacity}`,
           transition: "all 1s",
         }}
-        className="hidden md:block h-full absolute text-sm md:text-base left-0 md:top-0 bg-white w-1/5 z-40 overflow-y-auto sidebarScroll"
+        className="hidden md:block h-full absolute text-sm md:text-base left-0 md:top-0 bg-white w-1/5 z-40 overflow-y-auto sidebarScroll shadow-lg"
       >
         {" "}
         <div className="h-[30%] p-2 text-secondary">
@@ -64,7 +64,7 @@ export default function Sidebar() {
           >
             Auto Insurance
           </NavigationContainer>
-          <li className="md:cursor-pointer w-full border-b-2">
+          <li className="md:cursor-pointer w-full">
             <div
               onClick={() => setLinkAcctState((c) => !c)}
               className="md:flex-row md:p-4 text-center md:text-left flex items-center flex-col md:hover:bg-lightgray"

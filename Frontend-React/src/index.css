@@ -29,7 +29,8 @@ body{
 .card-display {
   aspect-ratio: 16/8;
   flex-shrink: 0;
-  margin-right: 1rem; /* Adjust the spacing between cards */
+  margin-right: 60px;
+  /* margin-right: 1rem; Adjust the spacing between cards */
 }
 
 .scrollbar-thin {

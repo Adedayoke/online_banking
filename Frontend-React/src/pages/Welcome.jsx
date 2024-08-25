@@ -1,12 +1,16 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-
+import  Lottie  from "lottie-react";
+import phoneData1 from "../lottieAnimation/phoneAnimation.json"; 
+import phoneData2 from "../lottieAnimation/phoneAnimation.json"; 
+import phoneData3 from "../lottieAnimation/phoneAnimation.json"; 
+import phoneData4 from "../lottieAnimation/phoneAnimation.json"; 
 export default function Welcome() {
   const [images, setImages] = useState([
-    "image1",
-    "image2",
-    "image3",
-    "image4",
+    phoneData1,
+    phoneData2,
+    phoneData3,
+    phoneData4,
   ]);
   const [index, setIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
@@ -21,17 +25,15 @@ export default function Welcome() {
         setIsTransitioning(true);
         setIndex((prev) => prev + 1); // Move to the next image
       }
-    }, 2000);
+    }, 4000);
 
     return () => clearInterval(intervalId);
   }, [index, images.length]);
 
   useEffect(() => {
     if (!isTransitioning) {
-      // Reset the slider without a transition
       sliderRef.current.style.transition = "none";
       sliderRef.current.style.transform = `translateX(0)`;
-      // Force reflow to reset transition
       void sliderRef.current.offsetHeight;
       setIsTransitioning(true);
     } else {
@@ -51,19 +53,31 @@ export default function Welcome() {
                 className="w-1/4 flex items-center justify-center text-white font-semibold"
                 style={{ minWidth: "100%" }}
               >
-                {image}
+
+                <Lottie speed={1} className="w-3/4 h-full" animationData={image} loop={true} />
+
               </div>
             ))}
           </div>
         </div>
         <div className="flex items-center justify-center basis-1/2 h-1/2 w-1/2">
-          <div className="flex w-full h-4/5 flex-col items-center justify-between">
-            <p className="text-white font-semibold">My bank</p>
-            <div className="flex h-3/5 w-full items-center flex-col justify-between">
-              <Link to="/login" className="p-3 text-center block w-1/2 rounded-xl bg-primary">
+          
+          <div className="flex w-full h-full flex-col items-center justify-between">
+            <p className="text-white font-semibold">My logo</p>
+            <p className="text-white font-semibold text-3xl text-center w-[60%]">
+              Your best money decisions start here.
+            </p>
+            <div className="flex h-1/2 w-full items-center flex-col justify-between">
+              <Link
+                to="/login"
+                className="p-3 text-center block w-1/2 rounded-xl bg-primary"
+              >
                 Login
               </Link>
-              <Link to="/signup" className="p-3 text-center block w-1/2 rounded-xl border border-white text-white">
+              <Link
+                to="/signup"
+                className="p-3 text-center block w-1/2 rounded-xl border border-white text-white"
+              >
                 Signup
               </Link>
             </div>

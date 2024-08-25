@@ -17,7 +17,7 @@ export default function NavigationContainer({
         pathname !== `/${page}` && "md:hover:bg-lightgray"
       } ${
         page === "withdraw" || page === "deposit" ? "hidden md:block" : "block"
-      } border-b-2 md:w-full md:p-4 md:text-left  md:cursor-pointer`}
+      } md:w-full md:p-4 md:text-left  md:cursor-pointer`}
     >
       <Link
         className="w-full md:flex-row text-center md:text-left flex items-center flex-col"
