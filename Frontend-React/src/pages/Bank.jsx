@@ -233,8 +233,9 @@ export default function Bank() {
           </div>
         </div>
 
-        <div className="flex px-4 items-center justify-between h-[50%]">
-          <div className="h-full basis-1/2 w-[35%] mr-4">
+        <div className="flex px-4 items-center justify-center h-[50%]">
+          <div className="h-full w-full flex items-center">
+          <div className="h-full basis-[50%] mr-4">
             <div className=" shadow-md h-full bg-white overflow-y-auto rounded-2xl">
               <p className="font-bold mb-2 text-xl px-4 pt-2">Finance</p>
               <hr />
@@ -278,12 +279,13 @@ export default function Bank() {
               </ul>
             </div>
           </div>
-          <div className="h-full basis-1/2 w-[35%]">
+          <div className="h-full basis-[50%]">
             <div className="bg-white shadow-md  h-[90%] rounded-2xl w-full">
               <p className="font-bold mb-2 text-xl px-4 pt-2">Transactions</p>
               <hr />
               <div>zascdszfsfdgukf</div>
             </div>
+          </div>
           </div>
         </div>
       </div>
