@@ -1,12 +1,12 @@
 import React from "react";
 import { PiHandWithdrawLight, PiHandDepositLight } from "react-icons/pi";
 
-export default function Transactions({
+export default function Transaction({
   transaction,
 }) {
   console.log(transaction)
   return (
-    <div className="text-base text-white flex items-center justify-between mb-4">
+    <div className="text-base text-black flex items-center justify-between mb-4">
       <div className="flex items-center">
         <div className="mr-4 rounded-full bg-lightGreen p-2">
           {transaction?.type === "withdraw" ? (

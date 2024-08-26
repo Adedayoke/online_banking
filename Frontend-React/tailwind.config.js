@@ -15,7 +15,8 @@ module.exports = {
         // primary: '#ff6f61',
         shadePrimary: '#83d13a4d',
         secondary: '#06151a',
-        lightgray : '#f6f3f6'
+        lightgray : '#f6f3f6',
+        darkgray: '#808080',
       },
       backgroundImage: {
         'radial-custom': 'radial-gradient(circle, #83d13a 5%, black 70%)',

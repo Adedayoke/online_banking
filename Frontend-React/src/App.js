@@ -18,11 +18,12 @@ import AdminLayout from "./ui/AdminLayout";
 import Passcode from "./pages/signup/Passcode";
 import ConfirmPasscode from "./pages/signup/ConfirmPasscode";
 import Welcome from "./pages/Welcome";
+import UserTransactions from "./pages/UserTransactions";
 
 const router = createBrowserRouter([
   {
     element: <Welcome />,
-    path: "/"
+    path: "/",
   },
   {
     element: <AppLayout />,
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
             element: <Deposit />,
           },
           {
+            path: "/bank/transactions",
+            element: <UserTransactions />,
+          },
+          {
             path: "/bank/cards",
             element: <Cards />,
           },
@@ -47,9 +52,8 @@ const router = createBrowserRouter([
             path: "/bank/me",
             element: <Me />,
           },
-        ]
+        ],
       },
-      
     ],
   },
   {
@@ -66,13 +70,13 @@ const router = createBrowserRouter([
         children: [
           {
             path: "/signup/two/setpasscode",
-            element: <Passcode />
+            element: <Passcode />,
           },
           {
             path: "/signup/two/confirmpasscode",
-            element: <ConfirmPasscode />
-          }
-        ]
+            element: <ConfirmPasscode />,
+          },
+        ],
       },
     ],
   },
@@ -87,16 +91,18 @@ const router = createBrowserRouter([
         element: <Admin />,
         path: "/admin",
       },
-      
-    ]
+    ],
   },
   {
     element: <AdminLogin />,
     path: "/admin/login",
   },
- 
 ]);
 export default function App() {
-  return <>
-  <ToastContainer /><RouterProvider router={router} /></>;
+  return (
+    <>
+      <ToastContainer />
+      <RouterProvider router={router} />
+    </>
+  );
 }
