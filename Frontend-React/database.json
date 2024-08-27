@@ -70,24 +70,45 @@
   ],
   "transactions": [
     {
-      "uid": "0f8874f3327",
-      "type": "withdraw",
-      "destination": "FirstBank",
-      "recievedFrom": "",
+      "uid": "319012d149b",
+      "type": "transfer",
+      "receiverBankName": "Montreal",
+      "receiverAccountName": "Oke Ibraheem Adebayo",
+      "receiverAccountNumber": "123456789",
+      "recievedFromBankName": "",
+      "recievedFromSenderName": "",
+      "bankLogoSource": "https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/Screenshot_20230727-153517.jpg",
       "date": "12/12/2024",
-      "amount": "1000",
+      "amount": "5000",
       "status": "Successful",
-      "id": "81af"
+      "id": "223c"
     },
     {
       "uid": "319012d149b",
-      "type": "recieved",
-      "destination": "",
-      "recievedFrom": "Cashapp",
+      "type": "transfer",
+      "receiverBankName": "Montreal",
+      "receiverAccountName": "Oke Toyin Maemunat",
+      "receiverAccountNumber": "08184529242",
+      "recievedFromBankName": "",
+      "recievedFromSenderName": "",
+      "bankLogoSource": "https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/Screenshot_20230727-153517.jpg",
       "date": "12/12/2024",
-      "amount": "5000",
-      "status": "Failed",
-      "id": "4d28"
+      "amount": "100000",
+      "status": "Successful",
+      "id": "223c"
+    },
+    {
+      "uid": "319012d149b",
+      "type": "deposit",
+      "receiverBankName": "",
+      "receiverAccountName": "",
+      "receiverAccountNumber": "",
+      "recievedFromBankName": "Moniepoint",
+      "recievedFromSenderName": "Sarafa Satar",
+      "bankLogoSource": "https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/Screenshot_20230727-153517.jpg",
+      "date": "12/12/2024",
+      "amount": "10000",
+      "status": "Successful"
     }
   ],
   "admin": [

@@ -7,7 +7,7 @@ import AppLayout from "./ui/AppLayout";
 import SignupOne from "./pages/signup/SignupOne";
 import SignupTwo from "./pages/signup/SignupTwo";
 import "react-toastify/dist/ReactToastify.css";
-import Transfer from "./pages/transactionPages/Transfer";
+import Transfer from "./pages/transactionPages/Transfer/Transfer";
 import Deposit from "./pages/transactionPages/Deposit";
 import Cards from "./pages/transactionPages/Cards";
 import Me from "./pages/transactionPages/Me";
@@ -19,6 +19,7 @@ import Passcode from "./pages/signup/Passcode";
 import ConfirmPasscode from "./pages/signup/ConfirmPasscode";
 import Welcome from "./pages/Welcome";
 import UserTransactions from "./pages/UserTransactions";
+import TransferAmount from "./pages/transactionPages/Transfer/TransferAmount";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,12 @@ const router = createBrowserRouter([
           {
             path: "/bank/transfer",
             element: <Transfer />,
+            children: [
+              {
+                path: "/bank/transfer/amount",
+                element: <TransferAmount />,
+              }
+            ]
           },
           {
             path: "/bank/deposit",

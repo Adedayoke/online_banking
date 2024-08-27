@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import Overlay from "../../components/Overlay";
-import { Link } from "react-router-dom";
+import Overlay from "../../../components/Overlay";
 import { useSelector } from "react-redux";
-import Transaction from "../../components/Transaction";
 
-export default function Transfer() {
+export default function TransferAmount() {
   const [receiverAccountName, setReceiverAccountName] = useState("");
   const [receiverBank, setReceiverBank] = useState("");
   const [transferError, setTransferError] = useState("");
@@ -24,26 +22,40 @@ export default function Transfer() {
           <div className="flex mb-4">
             <p
               onClick={() => setSelectedRoute("account")}
-              className={`p-4 border-b-2 text-center font-semibold border-secondary cursor-pointer basis-1/2 ${
+              className={`p-4  text-center font-semibold cursor-pointer basis-1/2 ${
                 selectedRoute === "account"
-                  ? "bg-primary text-black"
-                  : "bg-lightgray"
+                  ? "border-primary border-b-2 text-primary"
+                  : "border-b-0"
               }`}
             >
               TO ACCOUNT
             </p>
             <p
               onClick={() => setSelectedRoute("bank")}
-              className={`p-4 border-b-2 text-center font-semibold border-secondary cursor-pointer basis-1/2 ${
+              className={`p-4  text-center font-semibold  cursor-pointer basis-1/2 ${
                 selectedRoute === "bank"
-                  ? "bg-primary text-black"
-                  : "bg-lightgray"
+                  ? "border-primary border-b-2 text-primary"
+                  : "border-b-0"
               }`}
             >
               TO BANK
             </p>
           </div>
           {selectedRoute === "account" ? (
+            <>
+              <div className="relative mb-4">
+                <input
+                  value={receiverAccountName}
+                  onChange={(e) => setReceiverAccountName(e.target.value)}
+                  id="receiverAccountName"
+                  name="receiverAccountName"
+                  placeholder="Enter receivers account number"
+                  className="form__input w-full px-3 pt-3 py-2 bg-lightgray focus:outline-none text-lg rounded"
+                  required
+                />
+              </div>
+            </>
+          ) : (
             <>
               <div className="relative mb-4">
                 <input
@@ -63,34 +75,8 @@ export default function Transfer() {
                   value={receiverBank}
                   id="receiverBank"
                   name="receiverBank"
-                  placeholder="Enter amount"
+                  placeholder="Enter bank name"
                   className="form__input px-3 pt-3 py-2 w-full bg-lightgray rounded-md focus:outline-none"
-                  required
-                />
-              </div>
-            </>
-          ) : (
-            <>
-              <div className="relative mb-4">
-                <input
-                  value={receiverAccountName}
-                  onChange={(e) => setReceiverAccountName(e.target.value)}
-                  id="receiverAccountName"
-                  name="receiverAccountName"
-                  placeholder="Enter Bank Name"
-                  className="form__input w-full px-3 pt-3 py-2 bg-lightgray focus:outline-none text-lg rounded"
-                  required
-                />
-              </div>
-
-              <div className="relative mb-4">
-                <input
-                  onChange={(e) => setReceiverBank(e.target.value)}
-                  value={receiverBank}
-                  id="receiverBank"
-                  name="receiverBank"
-                  placeholder="0.00"
-                  className="form__input text-xl px-3 pt-3 py-2 w-full bg-lightgray rounded-md focus:outline-none"
                   required
                 />
               </div>
@@ -109,21 +95,7 @@ export default function Transfer() {
             Submit
           </button>
         </form>
-        <div className="p-4 bg-lightgray w-[90%] rounded-2xl h-1/2">
-          {transactions.length > 0 ? (
-            transactions?.map((transaction) => {
-              return (
-                <Transaction
-                  transaction={transaction}
-                  personalDetails={currentUser?.personalDetails}
-                />
-              );
-            })
-          ) : (
-            <p className="text-center text-white">No Transactions yet.</p>
-          )}
-          
-        </div>
+        <div className="p-4 bg-lightgray w-[90%] rounded-2xl h-1/2"></div>
       </Overlay>
     </div>
   );
