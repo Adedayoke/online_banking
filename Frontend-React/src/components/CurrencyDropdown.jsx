@@ -11,7 +11,7 @@ export default function CurrencyDropdown({
     <div className="relative text-base mr-2">
       <button
         onClick={toggleDropdown}
-        className="w-full text-left px-2 py-1 border border-customGreen rounded-md shadow-sm "
+        className="w-full text-left px-2 py-1 border border-customGreen rounded-md "
       >
         {selectedCurrency} <span className="ml-2 float-right">&#9660;</span>
       </button>

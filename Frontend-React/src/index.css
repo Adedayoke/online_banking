@@ -1,74 +1,257 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/* html{
+  height: 100vh;
+  height: -webkit-fill-available;
+} */
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
+  /* height: 100svh; 
+  height: -webkit-fill-available; */
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Ensure no scrolling */
 }
+
 * {
   box-sizing: border-box;
 }
+/* .myScrol{
+  background-color: rgba(0, 0, 255, .8);
+} */
 .form__input:focus ~ .form__label,
 .form__input:not(:placeholder-shown) ~ .form__label {
   left: 0.8rem;
-  top: -0.5rem;
+  top: -0.35rem;
   font-size: 0.8rem;
   opacity: 0.8;
+  
+}
+@keyframes bounce {
+  0%, 100% {
+      transform: scale(1.6);
+      animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+  50% {
+      transform: none;
+      animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+.animate-scale {
+  animation: bounce 1s infinite;
 }
 
 .form__label {
   transition: all 0.2s ease;
 }
-.hor-scroll {
+/* .hor-scroll {
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
-}
+} */
 
 .card-display {
+  transition: all .5s;
   aspect-ratio: 16/8;
   flex-shrink: 0;
   /* margin-right: 1rem; Adjust the spacing between cards */
 }
-
+.smCard{
+  /* box-shadow: 0px 1px 3px rgba(0, 0, 0, .8); */
+}
 .scrollbar-thin {
   scrollbar-width: thin;
 }
 .sidebarScroll {
-  scrollbar-width: thin;
+  scrollbar-width: none;
   scroll-behavior: smooth;
   scrollbar-track-color: #06151a;
   scrollbar-color: #00e5c6;
 }
+.sidebarScroll::-webkit-scrollbar{
+  display: none;
+}
 .translate_to_card1 {
-  /* transform: translateX(0%); */
+  transform: translateX(5%);
 }
 .translate_to_card2 {
-  /* transform: translateX(-100%); */
+  transform: translateX(-67%);
 }
 .translate_to_card3 {
-  /* transform: translateX(-105%); */
+  transform: translateX(-140%);
+  /* background-color: #000000cc; */
 }
+/* When hovering over a table row, show the .editUser icon */
+.pEd:hover .editUser {
+  visibility: visible;
+}
+.shadow-soft {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.shadow-neumorphic {
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.1),
+              -8px -8px 16px rgba(255, 255, 255, 0.7);
+}
+.shadow-deep {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.debitCard {
+  position: relative;
+  perspective: 1000px;
+  transition: transform 1s ease;
+  /* overflow: hidden; */
+}
+
+.debitCard:hover {
+  transform: rotateY(180deg);
+  background: transparent;
+}
+
+.card-front, .card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; 
+  transition: transform 1s ease;
+}
+
+.card-back {
+  transform: rotateY(180deg); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.debitCard:hover .card-front {
+  transform: rotateY(180deg);
+}
+
+.debitCard:hover .card-back {
+  transform: rotateY(0deg); 
+}
+.infinite-scroll-container{
+  overflow-x: hidden;
+  -webkit-mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+  mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+}
+.infinite-scroll{
+  animation: infiniteScroll 20s linear infinite;
+}
+.bigCard{
+  position: relative;
+}
+
+.profileCard{
+  background: hsla(147, 84%, 52%, 1);
+
+background: linear-gradient(45deg, hsla(147, 84%, 52%, 1) 8%, hsla(147, 88%, 55%, 1) 50%, hsla(147, 74%, 64%, 1) 100%);
+
+background: -moz-linear-gradient(45deg, hsla(147, 84%, 52%, 1) 8%, hsla(147, 88%, 55%, 1) 50%, hsla(147, 74%, 64%, 1) 100%);
+
+background: -webkit-linear-gradient(45deg, hsla(147, 84%, 52%, 1) 8%, hsla(147, 88%, 55%, 1) 50%, hsla(147, 74%, 64%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#1deb78", endColorstr="#29F183", GradientType=1 );
+}
+.profile-scroller{
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.profile-scroller > .profile-item{
+  scroll-snap-align: start;
+}
+.bigCard{
+  position: relative;
+}
+.disabledCP {
+  position: relative; 
+  pointer-events: none; 
+  /* opacity: 0.5;  */
+  overflow: hidden;
+}
+
+/* .disabledCP {
+  position: relative;
+  pointer-events: none;
+} */
+
+.disabledCP::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "Upgrade profile to access crypto transactions";
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: red;
+  text-align: center;
+}
+
+@keyframes infiniteScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 0.45rem));
+  }
+}
+.customCard-scroller{
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+  scroll-snap-align: start;
+  padding: 10px 0;
+}
+.customCard-scroller > .customCard{
+  scroll-snap-align: start;
+}
+.editUserBlock{
+  display: block !important;
+}
+.kmfk{
+  background-color: #ffffff99;
+}
+.bigCardCont{
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  scroll-snap-align: start;
+}
+.bigCardCont > .bigCard{
+  scroll-snap-align: start;
+}
+/* @media (max-width: 768px){
+  body{
+    overflow-y: auto;
+  }
+} */
 @media (min-width: 768px) {
+  
   .translate_to_card1 {
     transform: translateX(0%);
   }
   .translate_to_card2 {
-    transform: translateX(-40%);
+    transform: translateX(-35%);
   }
   .translate_to_card3 {
-    transform: translateX(-105%);
+    transform: translateX(-80%);
   }
 }
-/* .scrollbar-thumb-rounded-full {
-  scrollbar-color: #4B5563 transparent; 
-}
 
-.scrollbar-thumb-secondary {
-  scrollbar-color: #A78BFA #E5E7EB; 
-} */
 
-/* .stgb{
-  background-color: ;
-} */

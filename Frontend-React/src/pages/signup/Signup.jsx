@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import AuthContainer from "../../components/AuthContainer";
 
 export default function Signup() {
@@ -7,9 +7,7 @@ export default function Signup() {
 
   return (
     <AuthContainer>
-      <p className="text-center text-white text-xl font-bold p-4">
-        Signup Step {pathname.includes("/signup/one") ? 1 : 2} of 2
-      </p>
+      <Navigate to="/signup/one" />
       <Outlet />
     </AuthContainer>
   );

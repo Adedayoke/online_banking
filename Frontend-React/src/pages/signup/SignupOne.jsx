@@ -8,11 +8,11 @@ import ButtonPrimary from "../../components/ButtonPrimary";
 export default function SignupOne() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [userName, setUserName] = useState("");
+  const [username, setUsername] = useState("");
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [userPassword, setUserPassword] = useState("");
+  const [password, setpassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
@@ -55,7 +55,7 @@ export default function SignupOne() {
 
   const handlePasswordChange = (e) => {
     const password = e.target.value;
-    setUserPassword(password);
+    setpassword(password);
 
     const error = validatePassword(password);
     setPasswordError(error);
@@ -66,7 +66,7 @@ export default function SignupOne() {
     const confirmPwd = e.target.value;
     setConfirmPassword(confirmPwd);
 
-    if (userPassword && confirmPwd !== userPassword) {
+    if (password && confirmPwd !== password) {
       setConfirmPasswordError("Passwords do not match.");
     } else {
       setConfirmPasswordError("");
@@ -80,14 +80,14 @@ export default function SignupOne() {
 
     // Dispatch the signupOne action
     dispatch(
-      signupOne({ name: `${firstName} ${lastName}`, userName, userPassword })
+      signupOne({ firstname: firstName, lastname: lastName, username, password })
     );
     navigate("/signup/two");
   };
 
   return (
     <form className="p-4 text-secondary" onSubmit={handleSubmit}>
-      <p className="text-xl text-center mb-4 font-bold">Let's create your account!</p>
+      <p className="text-xl text-center text-white mb-4 font-bold">Let's create your account!</p>
       
       {/* First Name */}
       <div className="relative mb-4">
@@ -132,18 +132,18 @@ export default function SignupOne() {
       {/* Username */}
       <div className="relative mb-4">
         <input
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           type="text"
-          id="userName"
-          name="userName"
+          id="username"
+          name="username"
           placeholder=" "
           className="form__input w-full px-3 pt-3 py-2 bg-lightgray focus:outline-none text-lg rounded"
           required
         />
         <label
           className="form__label absolute left-2 top-2 opacity-50 text-secondary font-semibold mb-2"
-          htmlFor="userName"
+          htmlFor="username"
         >
           Username
         </label>
@@ -153,7 +153,7 @@ export default function SignupOne() {
       <div className="relative mb-4">
         <input
           onChange={handlePasswordChange}
-          value={userPassword}
+          value={password}
           type={showPassword ? "text" : "password"}
           id="password"
           name="password"
@@ -211,7 +211,7 @@ export default function SignupOne() {
       <ButtonPrimary disabled={passwordError || confirmPasswordError}>
         Next
       </ButtonPrimary>
-      <p className="text-center text-base font-semibold">
+      <p className="text-center text-white text-base font-semibold">
         Already have an account?{" "}
         <Link className="underline" to="/login">
           Login

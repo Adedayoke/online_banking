@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import NavigationContainer from "./NavigationContainer";
+import logo from '../assets/logo large2.png'
+import logo2 from '../assets/logo sign.png'
 import {
   IoCard,
   IoCardOutline,
@@ -16,6 +18,13 @@ import {
 } from "react-icons/pi";
 import { RiUserSmileFill, RiUserSmileLine } from "react-icons/ri";
 import Carousel from "./Carousel";
+import Logo from "./Logo";
+import homeIcon from "../assets/home icon.png";
+import cardsIcon from "../assets/cards icon.png";
+import transactionIcon from "../assets/transaction icon.png";
+import meIcon from "../assets/me icon.png";
+import settingIcon from "../assets/settings icon.png";
+import { Link } from "react-router-dom";
 
 export default function Sidebar() {
   const { isLoggedIn } = useSelector((state) => state.userAuth);
@@ -32,91 +41,60 @@ export default function Sidebar() {
         style={{
           transform: `translateX(${translateSidebar})`,
           opacity: `${opacity}`,
-          transition: "all 1s",
+          transition: "all .5s ease-out",
         }}
-        className="hidden md:block h-full absolute text-sm md:text-base left-0 md:top-0 bg-white w-1/5 z-40 overflow-y-auto sidebarScroll shadow-lg"
+        className="hidden md:block h-full absolute text-sm md:text-base left-0 md:top-0 bg-secondary text-white md:w-[10%] lg:w-[13%] z-40 overflow-y-auto sidebarScroll shadow-lg"
       >
         {" "}
-        <div className="h-[30%] p-2 text-secondary">
-          <div className="border h-full rounded-lg p-2 border-customGreen">
-            <Carousel />
-          </div>
+        <div className="h-[10%] hidden py-4 p-2 lg:flex items-center justify-center text-secondary">
+          <Logo imageSrc={logo} extraClass="w-[130px]" />
+        </div>
+        <div className="h-[10%] py-4 lg:hidden p-2 flex items-center justify-center text-secondary">
+          <Logo imageSrc={logo2} extraClass="w-[50px]" />
         </div>
         <ul className="flex h-[70%] md:block items-center justify-between py-4 px-5 md:py-4 md:px-0">
           <NavigationContainer
-            page="bank"
-            iconSelected={<IoHomeSharp size={25} />}
+            page="/bank"
+            iconSelected={<img className="w-7" src={homeIcon} />}
             iconUnselected={<IoHomeOutline size={25} />}
           >
-            My Bank
+            Dashboard
           </NavigationContainer>
           <NavigationContainer
-            page="bank/transfer"
-            iconSelected={<PiHandWithdrawFill size={25} />}
+            page="/bank/transactions"
+            iconSelected={<img className="w-7" src={transactionIcon} />}
             iconUnselected={<PiHandWithdrawLight size={25} />}
           >
-            Rewards
+            Transactions
           </NavigationContainer>
-          <NavigationContainer
-            page="bank/deposit"
-            iconSelected={<PiHandDepositFill size={25} />}
-            iconUnselected={<PiHandDepositLight size={25} />}
-          >
-            Auto Insurance
-          </NavigationContainer>
-          <li className="md:cursor-pointer w-full">
+          <Link to="/bank/cards" className="md:cursor-pointer w-full">
             <div
               onClick={() => setLinkAcctState((c) => !c)}
-              className="md:flex-row md:p-4 text-center md:text-left flex items-center flex-col md:hover:bg-lightgray"
+              className="md:flex-row md:p-4 text-center md:text-left flex items-center flex-col text-sm md:py-4 md:px-2"
             >
-              <span className="md:mr-4">
-                <IoCard size={25} />
+              <span className="md:m-auto lg:ml-0 lg:mr-2">
+              <img className="w-7" src={cardsIcon} />
               </span>
-              <span>Linked Accounts</span>
+              <span className="md:hidden lg:block">Cards</span>
             </div>
-            <ul
-              className="pl-10"
-              style={{
-                transform: linkAcctState
-                  ? "translateY(-20px)"
-                  : "translateY(0)",
-                display: linkAcctState ? "none" : "block",
-                opacity: linkAcctState ? "0" : "1",
-                transition: "all .1s",
-              }}
-            >
-              <li className="md:flex-row flex p-4 text-center md:text-left items-center justify-between md:hover:bg-lightgray text-sm font-semibold">
-                <img
-                  className="h-8 w-8 rounded-full bg-secondary"
-                  src=""
-                  alt=""
-                />
-                <span className="">Debit Card</span>
-                <span className="">***1234</span>
-              </li>
-              <li className="md:flex-row p-4 text-center md:text-left items-center flex-col md:hover:bg-lightgray flex">
-                <span className="md:mr-4">
-                  <IoAddCircleOutline size={23} />
-                </span>
-                <span>Link an account</span>
-              </li>
-            </ul>
-          </li>
-          <NavigationContainer
-            page="bank/cards"
-            iconSelected={<IoCard size={25} />}
-            iconUnselected={<IoCardOutline size={25} />}
-          >
-            Support
-          </NavigationContainer>
-          <NavigationContainer
-            page="bank/me"
-            iconSelected={<RiUserSmileFill size={25} />}
+          </Link>
+          {/* <NavigationContainer
+            page="/bank/about"
+            iconSelected={<img className="w-7" src={meIcon} />}
             iconUnselected={<RiUserSmileLine size={25} />}
           >
-            Me
-          </NavigationContainer>
+            About us
+          </NavigationContainer> */}
         </ul>
+        <div className="absolute left-0 bottom-0 w-full h-[60px] text-center">
+          <NavigationContainer
+              page="/bank/settings"
+              iconSelected={<img className="w-7" src={settingIcon} />}
+              iconUnselected={<RiUserSmileLine size={25} />}
+            >
+              Settings
+            </NavigationContainer>
+        </div>
       </div>
     );
 }

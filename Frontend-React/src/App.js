@@ -1,5 +1,6 @@
-import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { createBrowserRouter, RouterProvider, useNavigate } from "react-router-dom";
 import Bank from "./pages/Bank";
 import Signup from "./pages/signup/Signup";
 import Login from "./pages/Login";
@@ -9,7 +10,7 @@ import SignupTwo from "./pages/signup/SignupTwo";
 import "react-toastify/dist/ReactToastify.css";
 import Transfer from "./pages/transactionPages/Transfer/Transfer";
 import Deposit from "./pages/transactionPages/Deposit";
-import Cards from "./pages/transactionPages/Cards";
+import Cards from "./pages/Cards";
 import Me from "./pages/transactionPages/Me";
 import Admin from "./pages/admin/Admin";
 import AdminLogin from "./pages/admin/AdminLogin";
@@ -20,6 +21,16 @@ import ConfirmPasscode from "./pages/signup/ConfirmPasscode";
 import Welcome from "./pages/Welcome";
 import UserTransactions from "./pages/UserTransactions";
 import TransferAmount from "./pages/transactionPages/Transfer/TransferAmount";
+import Pin from "./pages/Pin";
+import ConfirmPin from "./pages/ConfirmPin";
+import SetPin from "./pages/SetPin";
+import ViewUser from "./pages/admin/ViewUser";
+import { login } from "./slice/authUserSlice";  // Import the login action
+import Settings from "./pages/Settings";
+import OTP from "./components/OTP";
+import ErrorPage from "./components/ErrorPage";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 const router = createBrowserRouter([
   {
@@ -28,41 +39,49 @@ const router = createBrowserRouter([
   },
   {
     element: <AppLayout />,
+    path: "/bank",
     children: [
       {
         path: "/bank",
         element: <Bank />,
+      },
+      {
+        path: "/bank/transfer",
         children: [
           {
             path: "/bank/transfer",
             element: <Transfer />,
-            children: [
-              {
-                path: "/bank/transfer/amount",
-                element: <TransferAmount />,
-              }
-            ]
           },
           {
-            path: "/bank/deposit",
-            element: <Deposit />,
-          },
-          {
-            path: "/bank/transactions",
-            element: <UserTransactions />,
-          },
-          {
-            path: "/bank/cards",
-            element: <Cards />,
-          },
-          {
-            path: "/bank/me",
-            element: <Me />,
+            path: "/bank/transfer/amount",
+            element: <TransferAmount />,
           },
         ],
       },
+      {
+        path: "/bank/deposit",
+        element: <Deposit />,
+      },
+      {
+        path: "/bank/transactions",
+        element: <UserTransactions />,
+      },
+      {
+        path: "/bank/cards",
+        element: <Cards />,
+      },
+      {
+        path: "/bank/me",
+        element: <Me />,
+      },
+      {
+        path: "/bank/settings",
+        element: <Settings />,
+      },
     ],
+    errorElement: <ErrorPage />
   },
+
   {
     path: "signup",
     element: <Signup />,
@@ -89,14 +108,38 @@ const router = createBrowserRouter([
   },
   {
     path: "login",
-    element: <Login />,
+    children: [
+      {
+        path: "",
+        element: <Login />,
+      },
+      {
+        path: "/login/pin",
+        element: <Pin />,
+        children: [
+          {
+            path: "/login/pin/set",
+            element: <SetPin />,
+          },
+          {
+            path: "/login/pin/confirm",
+            element: <ConfirmPin />,
+          },
+        ],
+      },
+    ],
   },
   {
     element: <AdminLayout />,
+    path: "/admin",
     children: [
       {
         element: <Admin />,
         path: "/admin",
+      },
+      {
+        element: <ViewUser />,
+        path: "/admin/viewUser",
       },
     ],
   },
@@ -104,11 +147,20 @@ const router = createBrowserRouter([
     element: <AdminLogin />,
     path: "/admin/login",
   },
+  {
+    element: <ForgotPassword />,
+    path:"/forgot-password"
+  },
+  {
+    element: <ResetPassword />,
+    path: "/forgot-password/reset-password/:token?",
+  },
+  
 ]);
+
 export default function App() {
   return (
     <>
-      <ToastContainer />
       <RouterProvider router={router} />
     </>
   );

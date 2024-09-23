@@ -1,14 +1,18 @@
 {
   "signUpUser": {
-    "uid": "294aa617db9",
+    "uid": "462ef622020",
     "personalDetails": {
-      "name": "user one",
-      "userName": "HE",
-      "userPassword": "user@2024Q",
-      "phone": "+494457678765",
-      "email": "user@gmail.com",
-      "country": "Israel"
-    }
+      "name": "Habeeb Oke",
+      "userName": "Adedayoke",
+      "userPassword": "Ibraheema_1$4",
+      "phone": "+9728074534796",
+      "email": "adedayoke2006@gmail.com",
+      "country": "Austria"
+    },
+    "BTC": 0,
+    "ETH": 0,
+    "SOl": 0,
+    "pin": ""
   },
   "loginUser": {
     "email": "adedayoke2006@gmail.com",
@@ -21,94 +25,183 @@
   "users": [
     {
       "id": "dc5e",
-      "uid": "319012d149b",
-      "personalDetails": {
-        "name": "Habeeb Oke",
-        "userName": "Adedayoke",
-        "userPassword": "Ibraheema1$",
-        "phone": "+618123186689",
-        "email": "adedayoke2006@gmail.com",
-        "country": "Australia"
-      }
+      "uid": "fgvfry654rg5g",
+      "name": "admin",
+      "userName": "admin",
+      "userPassword": "admin",
+      "phone": "",
+      "email": "admin@gmail.com",
+      "country": "Australia",
+      "pin": "1234"
     },
     {
-      "id": "f26a",
-      "uid": "0f8874f3327",
-      "personalDetails": {
-        "name": "Habeeb Adedayo",
-        "userName": "okeibraheem267@gmail.com",
-        "userPassword": "Ibraheema1$",
-        "phone": "+2348123186689",
-        "email": "adedayoke2006@gmail.com",
-        "country": "France"
-      }
-    },
-    {
-      "id": "536c",
-      "uid": "bd6be75a671",
-      "personalDetails": {
-        "name": "Ibraheem Olamilekan",
-        "userName": "Drone Boy",
-        "userPassword": "Ibraheem@01",
-        "phone": "+2348024325159",
-        "email": "ibro@gmail.com",
-        "country": "Nigeria"
-      }
-    },
-    {
-      "id": "84f2",
-      "uid": "f294aa617db",
-      "personalDetails": {
-        "name": "user one",
-        "userName": "HE",
-        "userPassword": "user@2024Q",
-        "phone": "+494457678765",
-        "email": "user@gmail.com",
-        "country": "Israel"
-      }
+      "id": "fba5",
+      "uid": "c72925b5502",
+      "name": "Habeeb Adedayo",
+      "userName": "Adedayoke22",
+      "userPassword": "Test1@2024",
+      "phone": "+9721234568900",
+      "email": "adedayoke2006@gmail.com",
+      "country": "Nigeria",
+      "balance": 1314111.7484519468,
+      "BTC": 5.3131230926,
+      "ETH": 0,
+      "SOl": 0,
+      "pin": "2580",
+      "identificationSrc": "",
+      "identificationState": "unverified",
+      "ssn": "",
+      "profilePic": "data:image/jpeg;base64,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",
+      "profileLevel": "pro"
     }
   ],
   "transactions": [
     {
-      "uid": "319012d149b",
+      "id": "61fd",
+      "uid": "2462ef62202",
       "type": "transfer",
       "receiverBankName": "Montreal",
-      "receiverAccountName": "Oke Ibraheem Adebayo",
-      "receiverAccountNumber": "123456789",
+      "receiverAccountName": "Adeleke oke",
+      "receiverAccountNumber": "8a1c2d30fdb",
       "recievedFromBankName": "",
       "recievedFromSenderName": "",
       "bankLogoSource": "https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/Screenshot_20230727-153517.jpg",
       "date": "12/12/2024",
-      "amount": "5000",
-      "status": "Successful",
-      "id": "223c"
+      "amount": 2000,
+      "status": "successful"
     },
     {
-      "uid": "319012d149b",
-      "type": "transfer",
-      "receiverBankName": "Montreal",
-      "receiverAccountName": "Oke Toyin Maemunat",
-      "receiverAccountNumber": "08184529242",
-      "recievedFromBankName": "",
-      "recievedFromSenderName": "",
-      "bankLogoSource": "https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/Screenshot_20230727-153517.jpg",
-      "date": "12/12/2024",
-      "amount": "100000",
-      "status": "Successful",
-      "id": "223c"
-    },
-    {
-      "uid": "319012d149b",
+      "id": "644d",
+      "uid": "8a1c2d30fdb",
       "type": "deposit",
       "receiverBankName": "",
       "receiverAccountName": "",
       "receiverAccountNumber": "",
-      "recievedFromBankName": "Moniepoint",
-      "recievedFromSenderName": "Sarafa Satar",
+      "recievedFromBankName": "Montreal",
+      "recievedFromSenderName": "Habeeb Oke",
       "bankLogoSource": "https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/Screenshot_20230727-153517.jpg",
       "date": "12/12/2024",
-      "amount": "10000",
-      "status": "Successful"
+      "amount": 2000,
+      "cpAmount": 0,
+      "status": "successful"
+    },
+    {
+      "id": "c156",
+      "uid": "2462ef62202",
+      "type": "cryptoBuy",
+      "receiverBankName": "USDT",
+      "receiverAccountName": "",
+      "receiverAccountNumber": "",
+      "recievedFromBankName": "",
+      "recievedFromSenderName": "",
+      "bankLogoSource": "https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/Screenshot_20230727-153517.jpg",
+      "date": "12/12/2024",
+      "amount": 600,
+      "cpAmount": 599.2004500311302,
+      "status": "successfull"
+    },
+    {
+      "id": "5acf",
+      "uid": "2462ef62202",
+      "type": "cryptoBuy",
+      "receiverBankName": "BNB",
+      "receiverAccountName": "",
+      "receiverAccountNumber": "",
+      "recievedFromBankName": "",
+      "recievedFromSenderName": "",
+      "bankLogoSource": "https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/Screenshot_20230727-153517.jpg",
+      "date": "12/12/2024",
+      "amount": 500,
+      "cpAmount": 1.0136789333950593,
+      "status": "successful"
+    },
+    {
+      "id": "dcb4",
+      "uid": "2462ef62202",
+      "type": "transfer",
+      "receiverBankName": "Montreal",
+      "receiverAccountName": "Adeleke oke",
+      "receiverAccountNumber": "8a1c2d30fdb",
+      "recievedFromBankName": "",
+      "recievedFromSenderName": "",
+      "bankLogoSource": "https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/Screenshot_20230727-153517.jpg",
+      "date": "12/12/2024",
+      "amount": 200,
+      "status": "successful"
+    },
+    {
+      "id": "4c96",
+      "uid": "2462ef62202",
+      "type": "transfer",
+      "receiverBankName": "Montreal",
+      "receiverAccountName": "Adeleke oke",
+      "receiverAccountNumber": "8a1c2d30fdb",
+      "recievedFromBankName": "",
+      "recievedFromSenderName": "",
+      "bankLogoSource": "https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/Screenshot_20230727-153517.jpg",
+      "date": "12/12/2024",
+      "amount": 200,
+      "status": "successful"
+    },
+    {
+      "id": "54dd",
+      "uid": "2462ef62202",
+      "type": "cryptoBuy",
+      "receiverBankName": "USDT",
+      "receiverAccountName": "",
+      "receiverAccountNumber": "",
+      "recievedFromBankName": "",
+      "recievedFromSenderName": "",
+      "bankLogoSource": "https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/Screenshot_20230727-153517.jpg",
+      "date": "12/12/2024",
+      "amount": 800,
+      "cpAmount": 798.9336975767876,
+      "status": "successful"
+    },
+    {
+      "id": "5ce7",
+      "uid": "2462ef62202",
+      "type": "cryptoSell",
+      "receiverBankName": "USDT",
+      "receiverAccountName": "",
+      "receiverAccountNumber": "",
+      "recievedFromBankName": "",
+      "recievedFromSenderName": "",
+      "bankLogoSource": "https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/Screenshot_20230727-153517.jpg",
+      "date": "12/12/2024",
+      "amount": 1400.0001770845538,
+      "cpAmount": 1398.1341476079,
+      "status": "successful"
+    },
+    {
+      "id": "e079",
+      "uid": "c72925b5502",
+      "type": "cryptoSell",
+      "receiverBankName": "BTC",
+      "receiverAccountName": "",
+      "receiverAccountNumber": "",
+      "recievedFromBankName": "",
+      "recievedFromSenderName": "",
+      "bankLogoSource": "https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/Screenshot_20230727-153517.jpg",
+      "date": "12/12/2024",
+      "amount": 55234.490488656695,
+      "cpAmount": 1,
+      "status": "successful"
+    },
+    {
+      "id": "054c",
+      "uid": "c72925b5502",
+      "type": "cryptoSell",
+      "receiverBankName": "BTC",
+      "receiverAccountName": "",
+      "receiverAccountNumber": "",
+      "recievedFromBankName": "",
+      "recievedFromSenderName": "",
+      "bankLogoSource": "https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/Screenshot_20230727-153517.jpg",
+      "date": "12/12/2024",
+      "amount": 314111.7484519467,
+      "cpAmount": 5.6868769074,
+      "status": "successful"
     }
   ],
   "admin": [
@@ -117,6 +210,28 @@
       "password": "admin",
       "uid": "45tde345te345",
       "id": "dbaa"
+    }
+  ],
+  "linkedAccounts": [
+    {
+      "id": "c86b",
+      "cardNumber": "1234567812345678",
+      "cvv": "555",
+      "cardType": "Mastercard",
+      "expiry": "12/34",
+      "noc": "Oke Habeeb Adedayo",
+      "uid": "5933532154",
+      "date": "9/7/2024"
+    },
+    {
+      "id": "c86b",
+      "cardNumber": "1234567812345678",
+      "cvv": "555",
+      "cardType": "Visa",
+      "expiry": "12/34",
+      "noc": "Oke Habeeb Adedayo",
+      "uid": "5933532154",
+      "date": "9/7/2024"
     }
   ]
 }

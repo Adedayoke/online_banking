@@ -12,26 +12,22 @@ export default function NavigationContainer({
     <li
       className={`${
         pathname === `/${page}` &&
-        "border-l-4 border-b-0 border-l-primary bg-lightGreen"
+        "md:border-l-4 md:border-b-0 md:border-l-primary"
       } ${
-        pathname !== `/${page}` && "md:hover:bg-lightgray"
+        pathname !== `/${page}` && ""
       } ${
         page === "withdraw" || page === "deposit" ? "hidden md:block" : "block"
-      } md:w-full md:p-4 md:text-left  md:cursor-pointer`}
+      } md:w-full text-sm md:py-4 md:px-2 md:text-left  md:cursor-pointer`}
     >
       <Link
         className="w-full md:flex-row text-center md:text-left flex items-center flex-col"
         to={page}
       >
-        {pathname === `/${page}` ? (
-          <span className="md:mr-4">{iconSelected}</span>
-        ) : (
-          <span className="md:mr-4 ">{iconUnselected}</span>
-        )}
+          <span className="md:m-auto lg:ml-0 lg:mr-2">{iconSelected}</span>
         <span
           className={`${
             pathname === `/${page}` ? "text-black font-semibold" : ""
-          }  `}
+          } md:hidden lg:block` }
         >
           {children}
         </span>
